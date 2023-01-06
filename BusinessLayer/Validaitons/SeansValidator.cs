@@ -10,5 +10,17 @@ namespace BusinessLayer.Validaitons
 {
     public class SeansValidator : AbstractValidator<Seans>
     {
+        public SeansValidator()
+        {
+
+
+
+
+
+        }
+
+
+
+
     }
 }

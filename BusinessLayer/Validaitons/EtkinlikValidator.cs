@@ -10,5 +10,17 @@ namespace BusinessLayer.Validaitons
 {
     public class EtkinlikValidator : AbstractValidator<Etkinlik>
     {
+
+        public EtkinlikValidator()
+        {
+
+
+
+
+
+        }
+
+
+
     }
 }

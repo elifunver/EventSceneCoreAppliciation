@@ -10,5 +10,14 @@ namespace BusinessLayer.Validaitons
 {
     public class TurValidator : AbstractValidator<Tur>
     {
+        public TurValidator()
+        {
+
+
+
+
+
+        }
+
     }
 }

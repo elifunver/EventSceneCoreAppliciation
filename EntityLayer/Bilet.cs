@@ -15,8 +15,12 @@ namespace EntityLayer
         public string seyirciAd { get; set; }
         [StringLength(50)]
         public string seyirciSoyad { get; set; }
-        [StringLength(50)]
+        [StringLength(11)]
+        public string seyirciTc { get; set; }
         public int fiyat { get; set; }
+        [StringLength(50)]
+        public string seriNo { get; set; }
+        public bool odemeTipi { get; set; }
         public DateTime biletKesimTarihi { get; set; }
         public bool silindi { get; set; }
 

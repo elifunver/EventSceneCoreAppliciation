@@ -10,5 +10,16 @@ namespace BusinessLayer.Validaitons
 {
     public class SalonValidator: AbstractValidator<Salon>
     {
+
+        public SalonValidator()
+        {
+
+
+
+
+
+        }
+
+
     }
 }
