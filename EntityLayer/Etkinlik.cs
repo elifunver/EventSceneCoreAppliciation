@@ -15,10 +15,13 @@ namespace EntityLayer
         public string etkinlikAd { get; set; }
         [StringLength(50)]
         public string aciklama { get; set; }
-
         public bool silindi { get; set; }
 
-        //Tür ile ilişkilendirelecek.
-        public virtual ICollection<Tur> turler{ get; set; }
+        //Tur ile ilişkilendirilecek.
+        public int turId { get; set; }
+        public virtual Tur tur { get; set; }
+
+        //Seans ile ilişkilendirilecek.
+        public virtual ICollection<Seans> seanslar { get; set; }
     }
 }

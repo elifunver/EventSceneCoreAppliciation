@@ -9,7 +9,6 @@ namespace EntityLayer
 {
     public class Seans
     {
-
         [Key]
         public int seansId { get; set; }
         [StringLength(50)]
@@ -18,10 +17,17 @@ namespace EntityLayer
         public DateTime tarih { get; set; }
         [StringLength(50)]
         public string saat { get; set; }
-
         public bool silindi { get; set; }
 
-        //Tür ile ilişkilendirelecek.
-        public virtual ICollection<Tur> turler { get; set; }
+        //Etkinlik ile ilişkilendirilecek.
+        public int etkinlikId { get; set; }
+        public virtual Etkinlik etkinlik{ get; set; }
+
+        //Salon ile ilişkilendirilecek.
+        public int salonId { get; set; }
+        public virtual Salon salon { get; set; }
+
+        //Bilet ile ilişkilendirelecek.
+        public virtual ICollection<Bilet> biletler { get; set; }
     }
 }
