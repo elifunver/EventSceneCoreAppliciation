@@ -13,8 +13,11 @@ namespace EntityLayer
         public int etkinlikId { get; set; }
         [StringLength(50)]
         public string etkinlikAd { get; set; }
-        [StringLength(50)]
+        [StringLength(6000)]
         public string aciklama { get; set; }
+
+        public string etkinlikAfis { get; set; }
+
         public bool silindi { get; set; }
 
         //Tur ile ilişkilendirilecek.

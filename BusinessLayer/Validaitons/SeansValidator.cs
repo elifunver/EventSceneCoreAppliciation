@@ -20,7 +20,5 @@ namespace BusinessLayer.Validaitons
         }
 
 
-
-
     }
 }
