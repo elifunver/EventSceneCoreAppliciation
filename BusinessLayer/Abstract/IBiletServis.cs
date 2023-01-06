@@ -13,7 +13,6 @@ namespace BusinessLayer.Abstract
         void biletSil(Bilet bilet);
         void biletGuncelle(Bilet bilet);
         List<Bilet> biletListele();
-        Bilet biletGetirById(int id);
-        Bilet biletGetirByName(string name);
+        Bilet biletGetById(int id);
     }
 }

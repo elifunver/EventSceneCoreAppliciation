@@ -12,7 +12,7 @@ namespace EntityLayer
         [Key]
         public int salonId { get; set; }
         [StringLength(50)]
-        public int salonAdı { get; set; }
+        public string salonAd { get; set; }
         [StringLength(50)]
         public int kapasite { get; set; }
 

@@ -10,10 +10,8 @@ namespace BusinessLayer.Validaitons
 {
     public class SeyirciValidator : AbstractValidator<Seyirci>
     {
-
         public SeyirciValidator()
         {
-
             //Rule for KullaniciAd
             RuleFor(kullanici => kullanici.kullaniciAd).NotEmpty().WithMessage("Kullanıcı Adı boş geçilemez!");
             RuleFor(kullanici => kullanici.kullaniciAd).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
@@ -51,10 +49,6 @@ namespace BusinessLayer.Validaitons
             RuleFor(kullanici => kullanici.kullaniciTel).NotEmpty().WithMessage("Kullanıcı tel boş geçilemez!");
             RuleFor(kullanici => kullanici.kullaniciTel).MaximumLength(11).WithMessage("Maximum 11 karakter girilmelidir.");
             RuleFor(kullanici => kullanici.kullaniciTel).MinimumLength(11).WithMessage("Minimum 11  karakter girilmelidir.");
-
-
         }
-
-
     }
 }

@@ -13,7 +13,6 @@ namespace BusinessLayer.Abstract
         void seansSil(Seans seans);
         void seansGuncelle(Seans seans);
         List<Seans> seansListele();
-        Seans seansGetirById(int id);
-        Seans seansGetirByName(string name);
+        Seans seansGetById(int id);
     }
 }

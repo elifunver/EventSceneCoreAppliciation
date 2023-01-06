@@ -10,10 +10,8 @@ namespace BusinessLayer.Validaitons
 {
     public class BiletValidator : AbstractValidator<Bilet>
     {
-
         public BiletValidator()
         {
-
             //Rule For SeriNo
             RuleFor(bilet => bilet.seriNo).NotEmpty().WithMessage("Seri No Boş geçilemez!");
             RuleFor(bilet => bilet.seriNo).MaximumLength(50).WithMessage("Maksimum 50 karakter girebilirsiniz.");
@@ -42,12 +40,6 @@ namespace BusinessLayer.Validaitons
 
             //Rule For SeyirciId
             RuleFor(bilet => bilet.seyirciId).NotEmpty().WithMessage("Seyirci Id tarihi boş geçilemez!");
-
-
-
         }
-
-
-
     }
 }

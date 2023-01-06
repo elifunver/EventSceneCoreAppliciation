@@ -21,12 +21,12 @@ namespace BusinessLayer.Concrete
             seyirciDal.insert(seyirci);
         }
 
-        public Seyirci seyirciGetirById(int id)
+        public Seyirci seyirciGetById(int id)
         {
             return seyirciDal.get(x => x.seyirciId == id);
         }
 
-        public Seyirci seyirciGetirByName(string ad)
+        public Seyirci seyirciGetByName(string ad)
         {
             return seyirciDal.get(x => x.seyirciAd == ad);
         }

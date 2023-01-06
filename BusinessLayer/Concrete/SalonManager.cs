@@ -21,9 +21,14 @@ namespace BusinessLayer.Concrete
             salonDal.insert(salon);
         }
 
-        public Salon salonGetirById(int id)
+        public Salon salonGetById(int id)
         {
             return salonDal.get(x => x.salonId == id);
+        }
+
+        public Salon salonGetByName(string ad)
+        {
+            return salonDal.get(x => x.salonAd == ad);
         }
 
         public void salonGuncelle(Salon salon)

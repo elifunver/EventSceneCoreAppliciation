@@ -13,7 +13,7 @@ namespace BusinessLayer.Abstract
         void etkinlikSil(Etkinlik etkinlik);
         void etkinlikGuncelle(Etkinlik etkinlik);
         List<Etkinlik> etkinlikListele();
-        Etkinlik etkinlikGetirById(int id);
-        Etkinlik etkinlikGetirByName(string name);
+        Etkinlik etkinlikGetById(int id);
+        Etkinlik etkinlikGetByName(string ad);
     }
 }

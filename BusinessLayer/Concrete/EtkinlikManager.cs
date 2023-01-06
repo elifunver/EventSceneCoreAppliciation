@@ -22,12 +22,12 @@ namespace BusinessLayer.Concrete
             etkinlikDal.insert(etkinlik);
         }
 
-        public Etkinlik etkinlikGetirById(int id)
+        public Etkinlik etkinlikGetById(int id)
         {
             return etkinlikDal.get(x => x.etkinlikId == id);
         }
 
-        public Etkinlik etkinlikGetirByName(string ad)
+        public Etkinlik etkinlikGetByName(string ad)
         {
             return etkinlikDal.get(x => x.etkinlikAd == ad);
         }

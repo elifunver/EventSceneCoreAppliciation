@@ -13,7 +13,7 @@ namespace BusinessLayer.Abstract
         void salonSil(Salon salon);
         void salonGuncelle(Salon salon);
         List<Salon> salonListele();
-        Salon salonGetirById(int id);
-        Salon salonGetirByName(string name);
+        Salon salonGetById(int id);
+        Salon salonGetByName(string ad);
     }
 }

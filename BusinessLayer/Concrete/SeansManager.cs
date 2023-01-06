@@ -21,15 +21,11 @@ namespace BusinessLayer.Concrete
             seansDal.insert(seans);
         }
 
-        public Seans seansGetirById(int id)
+        public Seans seansGetById(int id)
         {
             return seansDal.get(x => x.seansId == id);
         }
 
-        public Seans seansGetirByName(string ad)
-        {
-            return seansDal.get(x => x.seansAd == ad);
-        }
 
         public void seansGuncelle(Seans seans)
         {

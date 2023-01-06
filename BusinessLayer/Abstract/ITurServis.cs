@@ -13,7 +13,7 @@ namespace BusinessLayer.Abstract
         void turSil(Tur tur);
         void turGuncelle(Tur tur);
         List<Tur> turListele();
-        Tur turGetirById(int id);
-        Tur turGetirByName(string name);
+        Tur turGetById(int id);
+        Tur turGetByName(string ad);
     }
 }

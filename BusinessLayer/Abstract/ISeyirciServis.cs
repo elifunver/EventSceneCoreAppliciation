@@ -13,7 +13,7 @@ namespace BusinessLayer.Abstract
         void seyirciSil(Seyirci seyirci);
         void seyirciGuncelle(Seyirci seyirci);
         List<Seyirci> seyirciListele();
-        Seyirci seyirciGetirById(int id);
-        Seyirci seyirciGetirByName(string name);
+        Seyirci seyirciGetById(int id);
+        Seyirci seyirciGetByName(string ad);
     }
 }

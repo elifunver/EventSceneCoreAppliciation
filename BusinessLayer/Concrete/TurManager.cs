@@ -21,12 +21,12 @@ namespace BusinessLayer.Concrete
             turDal.insert(tur);
         }
 
-        public Tur turGetirById(int id)
+        public Tur turGetById(int id)
         {
             return turDal.get(x => x.turId == id);
         }
 
-        public Tur turGetirByName(string ad)
+        public Tur turGetByName(string ad)
         {
             return turDal.get(x => x.turAd == ad);
         }
