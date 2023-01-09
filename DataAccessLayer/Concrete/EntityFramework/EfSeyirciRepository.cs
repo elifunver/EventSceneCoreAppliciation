@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.EntityFramework
 {
-    class EfSeyirciRepository : GenericRepository<Seyirci>, ISeyirciDal
+    public class EfSeyirciRepository : GenericRepository<Seyirci>, ISeyirciDal
     {
     }
 }
