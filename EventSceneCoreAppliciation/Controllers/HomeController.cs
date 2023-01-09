@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using TiyatroProje.Models;
+using EventSceneCoreAppliciation.Models;
 
 namespace TiyatroProje.Controllers
 {

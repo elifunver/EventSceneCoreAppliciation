@@ -1,4 +1,4 @@
-namespace TiyatroProje.Models
+namespace EventSceneCoreAppliciation.Models
 {
 	public class ErrorViewModel
 	{
