@@ -15,7 +15,7 @@ namespace EntityLayer
         public string sure { get; set; }
         [StringLength(50)]
         public DateTime tarih { get; set; }
-        [StringLength(50)]
+        [StringLength(5)]
         public string saat { get; set; }
         public bool silindi { get; set; }
 

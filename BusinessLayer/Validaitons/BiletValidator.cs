@@ -20,6 +20,10 @@ namespace BusinessLayer.Validaitons
             //Rule For BiletKesimTarihi
             RuleFor(bilet => bilet.biletKesimTarihi).NotEmpty().WithMessage("Bilet kesim tarihi boş geçilemez!");
 
+            //Rule For Bilet Fiyat
+            RuleFor(bilet => bilet.fiyat).NotEmpty().WithMessage("Bilet fiyatı boş geçilemez !");
+            RuleFor(bilet => bilet.fiyat).GreaterThan(0.00).WithMessage("Daha yüksek fiyat girmelisiniz !");
+
             //Rule For SeyirciAd
             RuleFor(bilet => bilet.seyirciAd).NotEmpty().WithMessage("Seyirci adı boş geçilemez!");
             RuleFor(bilet => bilet.seyirciAd).MaximumLength(25).WithMessage("Maksimum 25 karakter girebilirsiniz.");
