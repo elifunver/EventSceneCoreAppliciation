@@ -2,6 +2,7 @@
 using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
+using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventSceneCoreAppliciation.Controllers
@@ -19,11 +20,11 @@ namespace EventSceneCoreAppliciation.Controllers
         [HttpGet]
         public IActionResult Ekle()
         {
-            BiletSeansEtkinlikSeyirciModel biletSeansEtkinlikSeyirciModel = new BiletSeansEtkinlikSeyirciModel();
-            biletSeansEtkinlikSeyirciModel.seansModel = seansManager.seansListele();
-            biletSeansEtkinlikSeyirciModel.seyirciModel = seyirciManager.seyirciListele();
-            biletSeansEtkinlikSeyirciModel.biletModel = new Bilet();
-            return View(biletSeansEtkinlikSeyirciModel);
+            BiletSeansSeyirciModel biletSeansSeyirciModel = new BiletSeansSeyirciModel();
+            biletSeansSeyirciModel.seansModel = seansManager.seansListele();
+            biletSeansSeyirciModel.seyirciModel = seyirciManager.seyirciListele();
+            biletSeansSeyirciModel.biletModel = new Bilet();
+            return View(biletSeansSeyirciModel);
         }
 
         [HttpPost]
@@ -42,11 +43,11 @@ namespace EventSceneCoreAppliciation.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                BiletSeansEtkinlikSeyirciModel BiletSeansEtkinlikSeyirciModel biletSeansEtkinlikSeyirciModel = new BiletSeansEtkinlikSeyirciModel();
-                biletSeansEtkinlikSeyirciModel.seansModel = seansManager.seansListele();
-                biletSeansEtkinlikSeyirciModel.seyirciModel = seyirciManager.seyirciListele();
-                biletSeansEtkinlikSeyirciModel.biletModel = bilet;
-                return View(biletSeansEtkinlikSeyirciModel);
+                BiletSeansSeyirciModel biletSeansSeyirciModel = new BiletSeansSeyirciModel();
+                biletSeansSeyirciModel.seansModel = seansManager.seansListele();
+                biletSeansSeyirciModel.seyirciModel = seyirciManager.seyirciListele();
+                biletSeansSeyirciModel.biletModel = bilet;
+                return View(biletSeansSeyirciModel);
             }
         }
         public IActionResult Sil(int id)

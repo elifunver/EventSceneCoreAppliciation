@@ -7,6 +7,7 @@ using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using BusinessLayer.Concrete;
+using EventSceneCoreAppliciation.Models;
 
 namespace EventSceneCoreApplication.Controllers
 {
@@ -32,11 +33,11 @@ namespace EventSceneCoreApplication.Controllers
         [HttpGet]
         public IActionResult Ekle()
         {
-            SeansEtkinlikModel seansEtkinlikModel = new SeansEtkinlikModel();
-            seansEtkinlikModel.etkinlikModel = etkinlikManager.etkinlikListele();
-            seansEtkinlikModel.salonModel = salonManager.salonListele();
-            seansEtkinlikModel.seansModel = new Seans();
-            return View(seansEtkinlikModel);
+            SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
+            seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
+            seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
+            seansEtkinlikSalonModel.seansModel = new Seans();
+            return View(seansEtkinlikSalonModel);
         }
 
         [HttpPost]
@@ -51,15 +52,15 @@ namespace EventSceneCoreApplication.Controllers
             }
             else
             {
-                SeansEtkinlikModel seansEtkinlikModel = new SeansEtkinlikModel();
-                seansEtkinlikModel.etkinlikModel = etkinlikManager.etkinlikListele();
-                seansEtkinlikModel.salonModel = salonManager.salonListele();
-                seansEtkinlikModel.seansModel = new Seans();
+                SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
+                seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
+                seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
+                seansEtkinlikSalonModel.seansModel = new Seans();
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(seansEtkinlikModel);
+                return View(seansEtkinlikSalonModel);
             }
         }
 
@@ -67,12 +68,11 @@ namespace EventSceneCoreApplication.Controllers
         public IActionResult Guncelle(int id)
         {
             Seans seans = seansManager.seansGetById(id);
-
-            SeansEtkinlikModel seansEtkinlikModel = new SeansEtkinlikModel();
-            seansEtkinlikModel.etkinlikModel = etkinlikManager.etkinlikListele();
-            seansEtkinlikModel.etkinlikOtobusModel = seans;
-            seansEtkinlikModel.salonModel = salonManager.salonListele();
-            return View(seansEtkinlikModel);
+            SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
+            seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
+            seansEtkinlikSalonModel.seansModel = seans;
+            seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
+            return View(seansEtkinlikSalonModel);
         }
 
         [HttpPost]
@@ -87,15 +87,15 @@ namespace EventSceneCoreApplication.Controllers
             }
             else
             {
-                SeansEtkinlikModel seansEtkinlikModel = new SeansEtkinlikModel();
-                SeansEtkinlikModel.etkinlikModel = etkinlikManager.etkinlikListele();
-                SeansEtkinlikModel.seansModel = seans;
-                SeansEtkinlikModel.salonModel = salonManager.salonListele();
+                SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
+                seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
+                seansEtkinlikSalonModel.seansModel = seans;
+                seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(seansEtkinlikModel);
+                return View(seansEtkinlikSalonModel);
             }
         }
     }
