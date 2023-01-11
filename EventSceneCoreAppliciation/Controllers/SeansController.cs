@@ -17,14 +17,14 @@ namespace EventSceneCoreApplication.Controllers
         SalonManager salonManager = new SalonManager(new EfSalonRepository());
         public IActionResult Index()
         {
-            var Salonlar = seansManager.seansListele();
+            var seanslar = seansManager.seansListele();
             return View(seanslar);
         }
 
         public IActionResult Sil(int id)
         {
             Seans seans = seansManager.seansGetById(id);
-            seans.seansSilindi = true;
+            seans.silindi = true;
             seansManager.seansGuncelle(seans);
             return RedirectToAction("Index");
         }
@@ -33,7 +33,7 @@ namespace EventSceneCoreApplication.Controllers
         public IActionResult Ekle()
         {
             SeansEtkinlikModel seansEtkinlikModel = new SeansEtkinlikModel();
-            seansEtkinlikModel.etkinlikModel = etkinlikManager.EtkinlikListele();
+            seansEtkinlikModel.etkinlikModel = etkinlikManager.etkinlikListele();
             seansEtkinlikModel.salonModel = salonManager.salonListele();
             seansEtkinlikModel.seansModel = new Seans();
             return View(seansEtkinlikModel);
