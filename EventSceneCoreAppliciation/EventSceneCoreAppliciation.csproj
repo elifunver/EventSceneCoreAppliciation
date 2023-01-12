@@ -16,4 +16,16 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Bilet\" />
+    <Folder Include="Views\Etkinlik\" />
+    <Folder Include="Views\Menu\" />
+    <Folder Include="Views\Error\" />
+    <Folder Include="Views\Tur\" />
+    <Folder Include="Views\Seyirci\" />
+    <Folder Include="Views\Seans\" />
+    <Folder Include="Views\Salon\" />
+  </ItemGroup>
+
 </Project>
