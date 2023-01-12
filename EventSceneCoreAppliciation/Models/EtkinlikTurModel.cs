@@ -4,7 +4,7 @@ namespace EventSceneCoreAppliciation.Models
 {
     public class EtkinlikTurModel
     {
-        public Etkinlik etkinlikModal { get; set; }
-        public IEnumerable<Tur> turModal { get; set; }
+        public Etkinlik etkinlikModel { get; set; }
+        public IEnumerable<Tur> turModel { get; set; }
     }
 }
