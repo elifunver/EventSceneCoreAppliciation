@@ -1,9 +1,10 @@
 ﻿using DataAccessLayer.Concrete;
 using EntityLayer;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using System.Security.Claims;
 using System.Text;
 using XSystem.Security.Cryptography;
@@ -21,6 +22,7 @@ namespace EventSceneCoreAppliciation.Controllers
             _toastNotification = toastNotification;
         }
         [AllowAnonymous]
+
         [HttpGet]
         public IActionResult login()
         {

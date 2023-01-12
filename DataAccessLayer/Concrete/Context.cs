@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer("server= ; database= ;Encrypt=False; User ID=sa; Password=1234");
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer("server=405-03 ; database=DbEventScene ;Encrypt=False; User ID=sa; Password=1234");
         }
         public DbSet<Etkinlik> etkinlikler { get; set; }
         public DbSet<Tur> turler { get; set; }
@@ -21,5 +21,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Seans> seansler  { get; set; }
         public DbSet<Bilet> biletler { get; set; }
         public DbSet<Admin> adminler { get; set; }
+        public DbSet<Admin> menuler { get; set; }
     }
 }

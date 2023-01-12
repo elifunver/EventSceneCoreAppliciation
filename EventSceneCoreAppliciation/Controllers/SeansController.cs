@@ -1,11 +1,7 @@
-﻿using EventSceneCoreApplication.Models;
-using EventSceneCoreApplication.Validaitons;
-using BusinessLayer;
-using BusinessLayer.Validaitons;
+﻿using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using BusinessLayer.Concrete;
 using EventSceneCoreAppliciation.Models;
 
