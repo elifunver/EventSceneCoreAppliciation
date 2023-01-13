@@ -1,0 +1,73 @@
+﻿@using EntityLayer
+@model List<Etkinlik>;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-11 grid-margin stretch-card" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; margin-left:30px; margin-top:30px;">
+    <div class="card">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Etkinlik Adı</th>
+            <th>Açıklama</th>
+            <th>Etkinlik Afişi</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.etkinlikAd</td>
+                <td>@item.aciklama</td>
+                <td>@item.etkinlikAfis</td>
+                <td>@item.silindi</td>
+                <td>
+                    <button type="button" class="btn btn-info" data-bs-whatever="@item.etkinlikId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                </td>
+                <td><a href="/Etkinlik/guncelle/@item.etkinlikId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp" ></ion-icon></a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="text-center d-flex justify-content-start p-2">
+                <a href="/Etkinlik/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Modal -->
+@*#decisionPopup Model*@
+<div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="silLabel">Uyarı</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Silmek istediğinizden emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                <a id="delete-btn" href="" class="btn btn-success">Evet</a>
+            </div>
+        </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#decisionPopup').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var etkinlikId = button.attr('data-bs-whatever');
+            console.log(etkinlikId);
+            var a = document.querySelector("#delete-btn");
+            a.href = "/Etkinlik/sil/" + etkinlikId
+        });
+    });
+</script>

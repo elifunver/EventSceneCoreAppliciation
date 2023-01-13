@@ -1,0 +1,33 @@
+﻿@using EntityLayer;
+@model Etkinlik
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="p-2">
+    <h3>Etkinlik Ekle</h3>
+    @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
+    {
+        @Html.Label("Etkinlik Adı")
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAd,new { @class = "form-control" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAd,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Etkinlik Açıklama")
+        @Html.TextBoxFor(etkinlik=>etkinlik.aciklama,new { @class = "form-control" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.aciklama,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Etkinlik Afiş")
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAfis,new { @class = "form-control" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAfis,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Durum")
+        <select class="form-control" name="silindi">
+            <option>False</option>
+            <option>True</option>
+        </select>
+        <br />
+        <input class="form-control btn btn-primary" type="submit" value="Etkinlik Ekle" />
+    }
+</div>
+

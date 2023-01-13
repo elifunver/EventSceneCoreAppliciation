@@ -22,6 +22,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Seans> seansler  { get; set; }
         public DbSet<Bilet> biletler { get; set; }
         public DbSet<Admin> adminler { get; set; }
-        public DbSet<Admin> menuler { get; set; }
+        public DbSet<Menu> menuler { get; set; }
+        public DbSet<Slider> slider { get; set; }
     }
 }

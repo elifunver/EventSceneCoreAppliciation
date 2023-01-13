@@ -1,0 +1,43 @@
+﻿@using EntityLayer;
+@model Etkinlik
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="p-2">
+    <h3>Etkinlik Guncelle</h3>
+    @using (Html.BeginForm("Guncelle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
+    {
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikId,new { @class = "form-control",@name="firmaId",@value="@Model.firmaId",@type="hidden"})
+        @Html.Label("Firma Adı")
+
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAd,new { @class = "form-control",@name="firmaAd",@value="@Model.firmaAd" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAd,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("İletişim Bilgisi")
+        @Html.TextBoxFor(etkinlik=>etkinlik.aciklama,new { @class = "form-control",@name="iletisim",@value="@Model.iletisim" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.aciklama,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Firma Logo")
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAfis,new { @class = "form-control",@name="logoUrl",@value="@Model.logoUrl" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAfis,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Durum")
+        <select class="form-control" name="silindi">
+            if (Model.silindi)
+            {
+            <option selected>True</option>
+            <option>False</option>
+            }
+            else
+            {
+            <option>True</option>
+            <option selected>False</option>
+            }
+        </select>
+        <br />
+        <input class="form-control btn btn-primary" type="submit" value="Etkinlik Güncelle" />
+    }
+</div>
+
