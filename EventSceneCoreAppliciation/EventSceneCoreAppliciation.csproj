@@ -26,7 +26,6 @@
     <Folder Include="Views\Tur\" />
     <Folder Include="Views\Seyirci\" />
     <Folder Include="Views\Seans\" />
-    <Folder Include="Views\Salon\" />
   </ItemGroup>
 
 </Project>

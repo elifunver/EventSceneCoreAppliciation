@@ -2,6 +2,7 @@
 using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
+using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventSceneCoreAppliciation.Controllers
@@ -9,6 +10,7 @@ namespace EventSceneCoreAppliciation.Controllers
     public class EtkinlikController : Controller
     {
         EtkinlikManager etkinlikm = new EtkinlikManager(new EfEtkinlikRepository());
+        TurManager turm=new TurManager(new EfTurRepository());
 
         public IActionResult Index()
         {
@@ -19,7 +21,9 @@ namespace EventSceneCoreAppliciation.Controllers
         [HttpGet]
         public IActionResult Ekle()
         {
-            return View();
+           var turList= turm.turListele();  
+         
+            return View(turList);
         }
 
         [HttpPost]
@@ -40,7 +44,9 @@ namespace EventSceneCoreAppliciation.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View();
+                var turList = turm.turListele();
+
+                return View(turList);
             }
         }
 

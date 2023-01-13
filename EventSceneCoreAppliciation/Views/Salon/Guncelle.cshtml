@@ -1,0 +1,38 @@
+﻿@using EntityLayer;
+@model Salon
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="p-2">
+    <h3>Salon Güncelle</h3>
+    @using (Html.BeginForm("Guncelle", "Salon", FormMethod.Post, new { @class = "form-group" }))
+    {
+        @Html.TextBoxFor(salon=>salon.salonId,new { @class = "form-control",@name="firmaId",@value="@Model.firmaId",@type="hidden"})
+        @Html.Label("Salon Adı")
+
+        @Html.TextBoxFor(salon=>salon.salonAd,new { @class = "form-control",@name="firmaAd",@value="@Model.firmaAd" })
+        @Html.ValidationMessageFor(salon=>salon.salonAd,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Salon Kapasitesi")
+        @Html.TextBoxFor(etkinlik=>etkinlik.kapasite,new { @class = "form-control",@name="iletisim",@value="@Model.iletisim" })
+        @Html.ValidationMessageFor(etkinlik=>etkinlik.kapasite,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Durum")
+        <select class="form-control" name="silindi">
+            if (Model.silindi)
+            {
+            <option selected>True</option>
+            <option>False</option>
+            }
+            else
+            {
+            <option>True</option>
+            <option selected>False</option>
+            }
+        </select>
+        <br />
+        <input class="form-control btn btn-primary" type="submit" value="Salon Güncelle" />
+    }
+</div>

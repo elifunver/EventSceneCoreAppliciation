@@ -1,5 +1,5 @@
 ﻿@using EntityLayer;
-@model Etkinlik
+@model List<Tur>
 @{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,21 +10,30 @@
     @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
     {
         @Html.Label("Etkinlik Adı")
-        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAd,new { @class = "form-control" })
-        @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAd,"",new { @class ="text-danger" })
+        @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
+        @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
         <br />
         @Html.Label("Etkinlik Açıklama")
-        @Html.TextBoxFor(etkinlik=>etkinlik.aciklama,new { @class = "form-control" })
-        @Html.ValidationMessageFor(etkinlik=>etkinlik.aciklama,"",new { @class ="text-danger" })
+        @Html.TextBox("aciklama","",new { @class = "form-control" })
+        @Html.ValidationMessage("aciklama","",new { @class ="text-danger" })
         <br />
         @Html.Label("Etkinlik Afiş")
-        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAfis,new { @class = "form-control" })
-        @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAfis,"",new { @class ="text-danger" })
+        @Html.TextBox("etkinlikAfis","",new { @class = "form-control" })
+        @Html.ValidationMessage("etkinlikAfis","",new { @class ="text-danger" })
+        <br />
+         @Html.Label("Tür")
+        <select name="turId"class="form-control">
+          
+            @foreach(var item in Model)
+            {
+                <option value="@item.turId">@item.turAd</option>
+          }
+        </select>
         <br />
         @Html.Label("Durum")
-        <select class="form-control" name="silindi">
-            <option>False</option>
-            <option>True</option>
+        <select  class="form-control" name="silindi">
+            <option value="False">False</option>
+            <option value="True">True</option>
         </select>
         <br />
         <input class="form-control btn btn-primary" type="submit" value="Etkinlik Ekle" />

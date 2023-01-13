@@ -6,21 +6,21 @@
 }
 
 <div class="p-2">
-    <h3>Etkinlik Guncelle</h3>
+    <h3>Etkinlik Güncelle</h3>
     @using (Html.BeginForm("Guncelle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
     {
-        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikId,new { @class = "form-control",@name="firmaId",@value="@Model.firmaId",@type="hidden"})
-        @Html.Label("Firma Adı")
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikId,new { @class = "form-control",@name="etkinlikId",@value="@Model.etkinlikId",@type="hidden"})
+        @Html.Label("Etkinlik Adı")
 
-        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAd,new { @class = "form-control",@name="firmaAd",@value="@Model.firmaAd" })
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAd,new { @class = "form-control",@name="etkinlikAd",@value="@Model.etkimlikAd" })
         @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAd,"",new { @class ="text-danger" })
         <br />
-        @Html.Label("İletişim Bilgisi")
-        @Html.TextBoxFor(etkinlik=>etkinlik.aciklama,new { @class = "form-control",@name="iletisim",@value="@Model.iletisim" })
+        @Html.Label("Etkinlik Açıklamamsı")
+        @Html.TextBoxFor(etkinlik=>etkinlik.aciklama,new { @class = "form-control",@name="acıklama",@value="@Model.aciklama" })
         @Html.ValidationMessageFor(etkinlik=>etkinlik.aciklama,"",new { @class ="text-danger" })
         <br />
-        @Html.Label("Firma Logo")
-        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAfis,new { @class = "form-control",@name="logoUrl",@value="@Model.logoUrl" })
+        @Html.Label("Etkinlik Afişi")
+        @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAfis,new { @class = "form-control",@name="etkinlikAfis",@value="@Model.etkinlikAfis" })
         @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAfis,"",new { @class ="text-danger" })
         <br />
         @Html.Label("Durum")
