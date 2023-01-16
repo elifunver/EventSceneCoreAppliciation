@@ -15,7 +15,7 @@
         @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikAd,new { @class = "form-control",@name="etkinlikAd",@value="@Model.etkimlikAd" })
         @Html.ValidationMessageFor(etkinlik=>etkinlik.etkinlikAd,"",new { @class ="text-danger" })
         <br />
-        @Html.Label("Etkinlik Açıklamamsı")
+        @Html.Label("Etkinlik Açıklaması")
         @Html.TextBoxFor(etkinlik=>etkinlik.aciklama,new { @class = "form-control",@name="acıklama",@value="@Model.aciklama" })
         @Html.ValidationMessageFor(etkinlik=>etkinlik.aciklama,"",new { @class ="text-danger" })
         <br />

@@ -1,0 +1,75 @@
+﻿@using EntityLayer;
+@model Bilet
+
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="p-2">
+    <h3>Bilet Güncelle</h3>
+    @using (Html.BeginForm("Guncelle", "Bilet", FormMethod.Post, new { @class = "form-group" }))
+    {
+        @Html.TextBoxFor(bilet=>bilet.biletId,new { @class = "form-control",@name="biletId",@value="@Model.biletId",@type="hidden" })
+        @Html.Label("Seri No")
+        @Html.TextBox("seriNo","",new { @class = "form-control" })
+        @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Ödeme Tipi")
+        <select class="form-control" name="odemeTipi">
+            @if (Model.odemeTipi)
+            {
+                <option selected>True</option>
+                <option>False</option>
+            }
+            else
+            {
+                <option>True</option>
+                <option selected>False</option>
+            }
+        </select>
+        <br />
+        @Html.Label("Bilet Kesim Tarihi")
+        @Html.TextBox("biletKesimTarihi","",new { @class = "form-control" })
+        @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Seyirci Adı")
+        @Html.TextBox("seyirciAd","",new { @class = "form-control" })
+        @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Seyirci Soyadı")
+        @Html.TextBox("seyirciSoyad","",new { @class = "form-control" })
+        @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Seyirci Tc")
+        @Html.TextBox("seyirciTc","",new { @class = "form-control" })
+        @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Seans Id")
+        @Html.TextBoxFor(bilet=>bilet.seansId ,new { @class = "form-control",@name="seferId",@value="@Model.seferId" })
+        @Html.ValidationMessageFor(bilet=>bilet.seansId ,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Seans Tarih Saatleri")
+        <select id="seansId" name="seansId" class="form-control">
+        </select>
+        @Html.Label("Seyirci Id")
+        @Html.TextBoxFor(bilet=>bilet.seyirciId ,new { @class = "form-control",@name="kullaniciId",@value="@Model.kullaniciId" })
+        @Html.ValidationMessageFor(bilet=>bilet.seyirciId ,"",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Durum")
+        <select class="form-control" name="silindi">
+            @if (Model.silindi)
+            {
+                <option selected>True</option>
+                <option>False</option>
+            }
+            else
+            {
+                <option>True</option>
+                <option selected>False</option>
+            }
+        </select>
+        <br />
+        <input class="form-control btn btn-primary" type="submit" value="Bilet Güncelle" />
+    }
+</div>

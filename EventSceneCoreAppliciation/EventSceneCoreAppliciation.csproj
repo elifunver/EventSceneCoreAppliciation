@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Bilet\" />
     <Folder Include="Views\Menu\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\Slider\" />

@@ -1,0 +1,67 @@
+﻿@using EntityLayer;
+@model BiletSeansSeyirciModel
+
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="p-2">
+    <h3>Bilet Ekle</h3>
+    @using (Html.BeginForm("Ekle", "Bilet", FormMethod.Post, new { @class = "form-group" }))
+    {
+        @Html.Label("Seri No")
+        @Html.TextBox("seriNo","",new { @class = "form-control" })
+        @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Ödeme Tipi")
+            <select class="form-control" name="odemeTipi">
+                <option>False</option>
+                <option>True</option>
+            </select>
+         <br />
+         @Html.Label("Bilet Kesim Tarihi")
+         @Html.TextBox("biletKesimTarihi","",new { @class = "form-control" })
+         @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
+         <br />
+         @Html.Label("Seyirci Adı")
+         @Html.TextBox("seyirciAd","",new { @class = "form-control" })
+         @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
+         <br />
+         @Html.Label("Seyirci Soyadı")
+         @Html.TextBox("seyirciSoyad","",new { @class = "form-control" })
+         @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
+         <br />
+         @Html.Label("Seyirci Tc")
+         @Html.TextBox("seyirciTc","",new { @class = "form-control" })
+         @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
+         <br />
+         @Html.Label("Seanslar")
+         <select name="seansId" class="form-control">
+            @foreach (var item in Model.seansModel)
+            {
+                <option value="@item.seansId">@item.saat @item.tarih.ToString().Split(" ")[0]</option>
+            }
+         </select>
+         <br />
+        @Html.Label("Seans Tarih Saatleri")
+        <select id="seansId" name="seansId" class="form-control">
+        </select>
+        @Html.Label("Kullanıcı Adı")
+        <select name="seyirciId" class="form-control">
+            @foreach (var item in Model.seyirciModel)
+            {
+                <option value="@item.seyirciId">@item.seyirciAd</option>
+            }
+        </select>
+        <br />
+        <br />
+         @Html.Label("Durum")
+         <select class="form-control" name="silindi">
+            <option value="False">False</option>
+            <option value="True">True</option>
+         </select>
+         <br />
+        <input class="form-control btn btn-primary" type="submit" value="Bilet Ekle" />
+    }
+</div>
