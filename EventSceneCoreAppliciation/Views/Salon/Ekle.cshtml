@@ -1,8 +1,30 @@
-﻿
+﻿@using EntityLayer;
+@model List<Salon>
 @{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Ekle</h1>
+<div class="p-2">
+    <h3>Salon Ekle</h3>
+    @using (Html.BeginForm("Ekle", "Salon", FormMethod.Post, new { @class = "form-group" }))
+    {
+        @Html.Label("Salon Adı")
+        @Html.TextBox("salonAd","",new { @class = "form-control" })
+        @Html.ValidationMessage("salonAd","",new { @class ="text-danger" })
+        <br />
+        @Html.Label("Salon Kapasitesi")
+        @Html.TextBox("kapasite","",new { @class = "form-control" })
+        @Html.ValidationMessage("kapasite","",new { @class ="text-danger" })
+        <br />
+    
+        @Html.Label("Durum")
+        <select class="form-control" name="silindi">
+            <option value="False">False</option>
+            <option value="True">True</option>
+        </select>
+        <br />
+        <input class="form-control btn btn-primary" type="submit" value="Salon Ekle" />
+    }
+</div>
 

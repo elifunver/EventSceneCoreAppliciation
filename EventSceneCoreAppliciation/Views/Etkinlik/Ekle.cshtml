@@ -11,7 +11,7 @@
     {
         @Html.Label("Etkinlik Adı")
         @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
-        @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
+        @Html.ValidationMessage("etkinlikAd","",new { @class ="text-danger" })
         <br />
         @Html.Label("Etkinlik Açıklama")
         @Html.TextBox("aciklama","",new { @class = "form-control" })
