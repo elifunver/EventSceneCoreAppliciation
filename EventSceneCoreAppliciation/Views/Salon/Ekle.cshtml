@@ -17,13 +17,13 @@
         @Html.TextBox("kapasite","",new { @class = "form-control" })
         @Html.ValidationMessage("kapasite","",new { @class ="text-danger" })
         <br />
-    
         @Html.Label("Durum")
         <select class="form-control" name="silindi">
             <option value="False">False</option>
             <option value="True">True</option>
         </select>
         <br />
+
         <input class="form-control btn btn-primary" type="submit" value="Salon Ekle" />
     }
 </div>

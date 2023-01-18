@@ -20,19 +20,12 @@
         @Html.ValidationMessageFor(etkinlik=>etkinlik.kapasite,"",new { @class ="text-danger" })
         <br />
         @Html.Label("Durum")
-        <select class="form-control" name="silindi">
-            if (Model.silindi)
-            {
-            <option selected>True</option>
-            <option>False</option>
-            }
-            else
-            {
-            <option>True</option>
-            <option selected>False</option>
-            }
-        </select>
-        <br />
+         <select class="form-control" name="silindi">
+            <option value="False">False</option>
+            <option value="True">True</option>
+         </select>
+         <br />
+
         <input class="form-control btn btn-primary" type="submit" value="Salon Güncelle" />
     }
 </div>
