@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Seans\**" />
-    <Content Remove="Views\Seans\**" />
-    <EmbeddedResource Remove="Views\Seans\**" />
-    <None Remove="Views\Seans\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.2" />
     <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
@@ -31,6 +24,11 @@
     <Folder Include="Views\Slider\" />
     <Folder Include="Views\Tur\" />
     <Folder Include="Views\Seyirci\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Seans\Ekle.cshtml" />
+    <None Include="Views\Seans\Guncelle.cshtml" />
   </ItemGroup>
 
 </Project>

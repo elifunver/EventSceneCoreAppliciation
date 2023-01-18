@@ -21,9 +21,10 @@ namespace EventSceneCoreAppliciation.Controllers
         [HttpGet]
         public IActionResult Ekle()
         {
-           var turList= turm.turListele();  
-         
-            return View(turList);
+            EtkinlikTurModel model= new EtkinlikTurModel();
+            model.turModel=turm.turListele();
+            model.etkinlikModel=new Etkinlik();
+            return View(model);
         }
 
         [HttpPost]
@@ -40,13 +41,14 @@ namespace EventSceneCoreAppliciation.Controllers
 
             else
             {
+                EtkinlikTurModel model = new EtkinlikTurModel();
+                model.turModel=turm.turListele();
+                model.etkinlikModel=etkinlik;
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                var turList = turm.turListele();
-
-                return View(turList);
+                return View(model);
             }
         }
 
@@ -57,11 +59,13 @@ namespace EventSceneCoreAppliciation.Controllers
             etkinlikm.etkinlikGuncelle(etkinlik);
             return RedirectToAction("Index");
         }
-
+        [HttpGet]
         public IActionResult guncelle(int id)
         {
-            Etkinlik etkinlik = etkinlikm.etkinlikGetById(id);
-            return View(etkinlik);
+            EtkinlikTurModel model = new EtkinlikTurModel();
+            model.turModel=turm.turListele();
+            model.etkinlikModel=etkinlikm.etkinlikGetById(id);
+            return View(model);
         }
 
         [HttpPost]
