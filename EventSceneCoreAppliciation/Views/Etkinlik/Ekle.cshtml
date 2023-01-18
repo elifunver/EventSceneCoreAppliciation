@@ -4,7 +4,7 @@
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<div class="col-11 grid-margin stretch-card" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; margin-left:30px; margin-top:30px;">
 <div class="p-2">
     <h3>Etkinlik Ekle</h3>
     @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
@@ -36,7 +36,8 @@
             <option value="True">True</option>
         </select>
         <br />
-
         <input class="form-control btn btn-primary" type="submit" value="Etkinlik Ekle" />
     }
 </div>
+</div>
+

@@ -4,10 +4,10 @@
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<div class="p-2">
+<div class="col-11 grid-margin stretch-card border border-primary" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; margin-left:30px; margin-top:30px;">
+    <div class="p-2 border border-primary">
     <h3>Etkinlik Güncelle</h3>
-    @using (Html.BeginForm("Guncelle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
+        @using (Html.BeginForm("Guncelle", "Etkinlik", FormMethod.Post, new { @class = "form-group border border-primary" }))
     {
         @Html.TextBoxFor(etkinlik=>etkinlik.etkinlikId,new { @class = "form-control",@name="etkinlikId",@value="@Model.etkinlikId",@type="hidden"})
         @Html.Label("Etkinlik Adı")
@@ -33,4 +33,4 @@
         <input class="form-control btn btn-primary" type="submit" value="Etkinlik Güncelle" />
     }
 </div>
-
+</div>
