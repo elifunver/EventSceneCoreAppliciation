@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Seans\**" />
+    <Content Remove="Views\Seans\**" />
+    <EmbeddedResource Remove="Views\Seans\**" />
+    <None Remove="Views\Seans\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.2" />
     <PackageReference Include="XAct.Core.PCL" Version="0.0.5014" />
   </ItemGroup>
@@ -19,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Bilet\" />
     <Folder Include="Views\Menu\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\Slider\" />

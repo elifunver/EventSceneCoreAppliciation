@@ -1,5 +1,5 @@
 ﻿@using EntityLayer;
-@model List<Tur>
+@model EtkinlikTurModel
 @{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -24,7 +24,7 @@
          @Html.Label("Tür")
         <select name="turId"class="form-control">
           
-            @foreach(var item in Model)
+            @foreach(var item in Model.turModel)
             {
                 <option value="@item.turId">@item.turAd</option>
           }
