@@ -19,11 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Menu\" />
     <Folder Include="Views\Error\" />
-    <Folder Include="Views\Slider\" />
-    <Folder Include="Views\Tur\" />
-    <Folder Include="Views\Seyirci\" />
   </ItemGroup>
 
   <ItemGroup>
