@@ -43,16 +43,16 @@
                         <td>@item.seyirci.seyirciAd</td>
                         <td>@item.silindi</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger  text-center" data-bs-whatever="@item.biletId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><i class="fas fa-trash"></i></button>
+                            <button type="button" class="btn btn-info" data-bs-whatever="@item.biletId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                         </td>
-                        <td><a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-outline-primary p-2 ">Güncelle</a></td>
+                            <td><a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></td>
                     </tr>
                 }
             </tbody>
 
         </table>
         <div class="text-center d-flex justify-content-start p-2">
-            <a href="/Bilet/ekle" class="btn btn-info"><ion-icon name="add" style=" font-size:30px;"></ion-icon></a>
+                <a href="/Bilet/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
         </div>
     </div>
 </div>
