@@ -10,16 +10,22 @@
     <h3>Etkinlik Ekle</h3>
     @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
     {
+        <div class="form-group">
         @Html.Label("Etkinlik Adı")
         @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
         @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
+        </div>
         <br />
+        <div class="form-group">
         @Html.Label("Etkinlik Açıklama")
         @Html.TextBox("aciklama","",new { @class = "form-control" })
         @Html.ValidationMessage("aciklama",new { @class ="text-danger" })
+        </div>
         <br />
+        <div class="form-group">
         @Html.Label("Etkinlik Afiş")
-                @Html.TextBox("etkinlikAfis",new { @class = "form-control", @type="file" })
+         @Html.TextBox("etkinlikAfis","",new { @class = "form-control",@type="file" })
+         </div>
         <br />
          @Html.Label("Tür")
         <select name="turId"class="form-control">

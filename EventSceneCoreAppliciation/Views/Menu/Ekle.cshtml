@@ -4,7 +4,9 @@
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<div class="col-11 grid-margin stretch-card">
+    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+        <div class="card-body">
 <h3>Ekle</h3>
 @using (Html.BeginForm("Ekle", "Menu", FormMethod.Post, new { @class = "form-group" }))
 {
@@ -33,3 +35,6 @@
     <br />
     <input class="form-control btn btn-primary" type="submit" value="Menu Ekle" />
 }
+</div>
+</div>
+</div>
