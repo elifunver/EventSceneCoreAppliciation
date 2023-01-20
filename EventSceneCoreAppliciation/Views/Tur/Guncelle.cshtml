@@ -1,8 +1,27 @@
-﻿
+﻿@using EntityLayer;
+@model Tur;
+
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Guncelle</h1>
+<div class="p-2">
+<h3>Tür Güncelle</h3>
+@using (Html.BeginForm("Guncelle", "Tür", FormMethod.Post, new { @class = "form-group" }))
+{
+   
+    @Html.Label("Tür Adı")
+    @Html.TextBox("turAd","",new { @class = "form-control" })
+    @Html.ValidationMessage("turAd",new { @class ="text-danger" })
+    <br />
+    @Html.Label("Durum")
+    <select class="form-control" name="silindi">
+        <option value="False">False</option>
+        <option value="True">True</option>
+    </select>
+    <br />
 
+    <input class="form-control btn btn-primary" type="submit" value="Tür Güncelle" />
+}
+</div>

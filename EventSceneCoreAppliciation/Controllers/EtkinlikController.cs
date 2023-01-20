@@ -4,6 +4,10 @@ using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
 using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
+using PagedList.Core;
+using System.Drawing.Printing;
+using EventSceneCoreAppliciation.PagedList;
+using DataAccessLayer.Concrete;
 
 namespace EventSceneCoreAppliciation.Controllers
 {
@@ -15,6 +19,18 @@ namespace EventSceneCoreAppliciation.Controllers
         public IActionResult Index()
         {
             var etkinlikler = etkinlikm.etkinlikListele();
+            return View(etkinlikler);
+
+        }
+
+        public IActionResult Index(int page=1, int pageSize=3)
+        {
+            Context c =new Context();
+            Pager pager = new Pager();
+            var etkinlikler = etkinlikm.etkinlikListele().ToPagedList(page, pageSize);
+            var itemCounts = c.etkinlikler.ToList().Count;
+            var data = c.etkinlikler.Skip((page - 1) * pageSize).Take(pageSize);
+            ViewBag.actionName = "Index";
             return View(etkinlikler);
         }
 
