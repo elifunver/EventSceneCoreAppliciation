@@ -12,6 +12,7 @@
     @using (Html.BeginForm("Guncelle", "Bilet", FormMethod.Post, new { @class = "form-group" }))
     {
         @Html.TextBox("biletId","",new { @class = "form-control",@name="biletId",@value="@Model.biletId",@type="hidden" })
+        
         @Html.Label("Seri No")
         @Html.TextBox("seriNo","",new { @class = "form-control" })
         @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
@@ -39,14 +40,14 @@
         @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
         <br />
         @Html.Label("Seans Id")
-        @Html.TextBox("seansId","",new { @class = "form-control",@name="seferId",@value="@Model.seferId" })
+        @Html.TextBox("seansId","",new { @class = "form-control",@name="seansId",@value="@Model.seansId" })
         @Html.ValidationMessage("seansId",new { @class ="text-danger" })
         <br />
         @Html.Label("Seans Tarih Saatleri")
         <select id="seansId" name="seansId" class="form-control">
         </select>
         @Html.Label("Seyirci Id")
-        @Html.TextBox("seyirciId" ,"",new { @class = "form-control",@name="kullaniciId",@value="@Model.kullaniciId" })
+        @Html.TextBox("seyirciId" ,"",new { @class = "form-control",@name="seyirciId",@value="@Model.seyirciId" })
         @Html.ValidationMessage("seyirciId",new { @class ="text-danger" })
         <br />
         @Html.Label("Durum")

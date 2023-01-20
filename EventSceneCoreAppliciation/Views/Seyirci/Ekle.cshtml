@@ -1,8 +1,60 @@
-﻿
+﻿@using EntityLayer;
+@model Seyirci
 @{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="col-11 grid-margin stretch-card">
+    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+        <div class="card-body">
+            <h3>Seyirci Ekle</h3>
+            @using (Html.BeginForm("Ekle", "Seyirci", FormMethod.Post, new { @class = "form-group" }))
+            {
+                @Html.Label("Kullanici Adı")
+                @Html.TextBox("kullaniciAd","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciAd","",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Kullanici Şifre")
+                @Html.TextBox("kullaniciSifre","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciSifre","",new { @class ="text-danger" })
+                <br />
+                 @Html.Label("Kullanici Tür")
+                @Html.TextBox("kullaniciTur","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciTur","",new { @class ="text-danger" })
+                <br />
+                 @Html.Label("Kullanici Tel")
+                @Html.TextBox("kullaiciTel","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaiciTel","",new { @class ="text-danger" })
+                <br />
+                 @Html.Label("Kullanici Mail")
+                @Html.TextBox("kullaiciMail","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaiciMail","",new { @class ="text-danger" })
+                <br />
+                 @Html.Label("Kullanici Tc")
+                @Html.TextBox("kullaniciTc","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciTc","",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Seyirci Adı")
+                @Html.TextBox("seyirciAd","",new { @class = "form-control" })
+                @Html.ValidationMessage("seyirciAd","",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Seyirci Soyadı")
+                @Html.TextBox("seyirciSoyad","",new { @class = "form-control" })
+                @Html.ValidationMessage("seyirciSoyad","",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Seyirci Doğum Tarihi")
+                @Html.TextBox("dogumTarihi","",new { @class = "form-control" })
+                @Html.ValidationMessage("dogumTarihi","",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Durum")
+                <select class="form-control" name="silindi">
+                    <option value="False">False</option>
+                    <option value="True">True</option>
+                </select>
+                <br />
 
-<h1>Ekle</h1>
-
+                <input class="form-control btn btn-primary" type="submit" value="Seyirci Ekle" />
+            }
+        </div>
+    </div>
+</div>

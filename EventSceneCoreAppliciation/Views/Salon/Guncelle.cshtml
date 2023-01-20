@@ -1,5 +1,5 @@
-﻿@using EntityLayer;
-@model Salon
+﻿@using EventSceneCoreAppliciation.Models;
+@model SeansEtkinlikSalonModel
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,28 +7,32 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
-    <h3>Salon Güncelle</h3>
-    @using (Html.BeginForm("Guncelle", "Salon", FormMethod.Post, new { @class = "form-group" }))
-    {
-        @Html.TextBoxFor(salon=>salon.salonId,new { @class = "form-control",@name="firmaId",@value="@Model.firmaId",@type="hidden"})
-        @Html.Label("Salon Adı")
+            <h3>Seans Güncelle</h3>
+            @using (Html.BeginForm("Guncelle", "Seans", FormMethod.Post, new { @class = "form-group" }))
+            {
+                @Html.TextBox("seansId","",new { @class = "form-control",@name="seansId",@value="@Model.seansId",@type="hidden"})
+              
+                @Html.Label("Seans Süre")
+                @Html.TextBox("sure","",new { @class = "form-control",@name="sure",@value="@Model.sure" })
+                @Html.ValidationMessage("sure",new { @class ="text-danger" })
+                <br />
+               @Html.Label("Seans Tarih")
+                @Html.TextBox("tarih","",new { @class = "form-control",@name="tarih",@value="@Model.tarih" })
+                @Html.ValidationMessage("tarih",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Seans Saat")
+                @Html.TextBox("saat","",new { @class = "form-control", @type="file", @name="saat",@value="@Model.saat" })
+                @Html.ValidationMessage("saat",new { @class ="text-danger" })
+                <br />
+                @Html.Label("Durum")
+                <select class="form-control" name="silindi">
+                    <option value="False">False</option>
+                    <option value="True">True</option>
+                </select>
+                <br />
 
-        @Html.TextBoxFor(salon=>salon.salonAd,new { @class = "form-control",@name="firmaAd",@value="@Model.firmaAd" })
-        @Html.ValidationMessageFor(salon=>salon.salonAd,"",new { @class ="text-danger" })
-        <br />
-        @Html.Label("Salon Kapasitesi")
-        @Html.TextBoxFor(etkinlik=>etkinlik.kapasite,new { @class = "form-control",@name="iletisim",@value="@Model.iletisim" })
-        @Html.ValidationMessageFor(etkinlik=>etkinlik.kapasite,"",new { @class ="text-danger" })
-        <br />
-        @Html.Label("Durum")
-         <select class="form-control" name="silindi">
-            <option value="False">False</option>
-            <option value="True">True</option>
-         </select>
-         <br />
-
-        <input class="form-control btn btn-primary" type="submit" value="Salon Güncelle" />
-    }
-</div>
-</div>
+                <input class="form-control btn btn-primary" type="submit" value="Seans Güncelle" />
+            }
+        </div>
+    </div>
 </div>

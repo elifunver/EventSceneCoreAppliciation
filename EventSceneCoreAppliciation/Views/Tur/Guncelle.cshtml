@@ -1,12 +1,14 @@
 ﻿@using EntityLayer;
-@model Tur;
+@model EtkinlikTurModel;
 
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="p-2">
+<div class="col-11 grid-margin stretch-card">
+    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+        <div class="card-body">
 <h3>Tür Güncelle</h3>
 @using (Html.BeginForm("Guncelle", "Tür", FormMethod.Post, new { @class = "form-group" }))
 {
@@ -24,4 +26,6 @@
 
     <input class="form-control btn btn-primary" type="submit" value="Tür Güncelle" />
 }
+</div>
+</div>
 </div>

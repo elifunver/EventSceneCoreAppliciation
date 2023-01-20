@@ -43,7 +43,7 @@
                         <td>@item.seyirci.seyirciAd</td>
                         <td>@item.silindi</td>
                         <td>
-                            <button type="button" class="btn btn-info" data-bs-whatever="@item.biletId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                            <button type="button" class="btn btn-info" data-whatever="@item.biletId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                         </td>
                             <td><a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></td>
                     </tr>
@@ -64,13 +64,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="silLabel">Uyarı</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Silmek istediğinizden emin misiniz?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
                 <a id="delete-btn" href="" class="btn btn-success">Evet</a>
             </div>
         </div>
@@ -78,7 +78,7 @@
 </div>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#decisionPopup').on('show.bs.modal', function (event) {

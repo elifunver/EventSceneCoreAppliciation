@@ -10,24 +10,48 @@
             <h3>Etkinlik Güncelle</h3>
             @using (Html.BeginForm("Guncelle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
             {
-                @Html.TextBox("etkinlikId","",new { @class = "form-control",@name="etkinlikId",@value="@Model.etkinlikId",@type="hidden"})
+                @Html.TextBox("etkinlikId",Model.etkinlikModel.etkinlikId,new { @class = "form-control" ,@type="hidden"})
                 @Html.Label("Etkinlik Adı")
 
-                @Html.TextBox("etkinlikAd","",new { @class = "form-control",@name="etkinlikAd",@value="@Model.etkimlikAd" })
+                @Html.TextBox("etkinlikAd",Model.etkinlikModel.etkinlikAd,new { @class = "form-control"})
                 @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
                 <br />
                 @Html.Label("Etkinlik Açıklaması")
-                @Html.TextBox("aciklama","",new { @class = "form-control",@name="acıklama",@value="@Model.aciklama" })
+                @Html.TextBox("aciklama",Model.etkinlikModel.aciklama,new { @class = "form-control"})
                 @Html.ValidationMessage("aciklama",new { @class ="text-danger" })
                 <br />
                 @Html.Label("Etkinlik Afişi")
-                @Html.TextBox("etkinlikAfis","",new { @class = "form-control", @type="file", @name="etkinlikAfis",@value="@Model.etkinlikAfis" })
+                @Html.TextBox("etkinlikAfis",Model.etkinlikModel.etkinlikAfis,new { @class = "form-control",@type="file"})
                 @Html.ValidationMessage("etkinlikAfis",new { @class ="text-danger" })
                 <br />
+                 @Html.Label("Tür")
+        <select name="turId"class="form-control">
+          
+            @foreach(var item in Model.turModel)
+            {
+                        @if (Model.etkinlikModel.turId==item.turId)
+                        {
+                            <option value="@item.turId" selected>@item.turAd</option>
+                        }
+                        else
+                        {
+                            <option value="@item.turId">@item.turAd</option>                            
+                        }
+            }
+        </select>
+        <br />
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    @if (Model.etkinlikModel.silindi)
+                    {
+                        <option value="False">Aktif</option>
+                        <option value="True" selected>Pasif</option>
+                    }
+                    else
+                    {
+                    <option value="False" sel>Aktif</option>
+                    <option value="True">Pasif</option>   
+                    }
                 </select>
                 <br />
 
