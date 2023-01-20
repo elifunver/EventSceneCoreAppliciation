@@ -1,8 +1,101 @@
-﻿
+﻿@using EntityLayer
+@model List<Menu>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="col-11 grid-margin stretch-card">
+    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+        <div class="card-body">
+@section searchbar{
+    <!-- Topbar Search -->
+    <form class="d-none d-sm-inline-block form-inline mr-auto md-3 my-md-0 mw-100 navbar-search">
+        <div class="input-group ms-3">
+            <input type="text" class="form-control border-0 small" placeholder="Bilet Ara"
+               aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-light" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
 
+}
+<h2>Menüler</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Menü Ad</th>
+            <th>Parent</th>
+            <th>Seo Url</th>
+            <th>Silindi</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.name</td>
+                @if (@item.parentId==null)
+                {
+                    <td>Kendisi</td>
+                }
+                else
+                {
+
+                    <td>@item.parent.name</td>
+                }
+                <td>@item.seoUrl</td>
+                <td>@item.silindi</td>
+
+                <td>
+                                <button type="button" class="btn btn-info" data-bs-whatever="@item.menuId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                </td>
+                <td><a href="/Menu/guncelle/@item.menuId" type="button" class="btn btn-outline-primary p-2">Güncelle</a></td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+<!-- Modal -->
+@*#decisionPopup Model*@
+<div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="silLabel">Uyarı</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Silmek istediğinizden emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                <a id="delete-btn" href="" class="btn btn-success">Evet</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center d-flex justify-content-start p-2">
+                <a href="/menu/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#decisionPopup').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var menuId = button.attr('data-bs-whatever');
+            var a = document.querySelector("#delete-btn");
+            a.href = "/Menu/sil/" + menuId;
+        });
+    });
+</script>
+</div>
+</div>
+</div>

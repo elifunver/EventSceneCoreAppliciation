@@ -5,9 +5,10 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<div class="col-11 grid-margin stretch-card" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; margin-left:30px; margin-top:30px;">
-    <div class="card">
+<div class="col-11 grid-margin stretch-card">
+    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+        <div class="card-body">
+   
         <h2>Biletler</h2>
 
         <table class="table">
@@ -42,16 +43,16 @@
                         <td>@item.seyirci.seyirciAd</td>
                         <td>@item.silindi</td>
                         <td>
-                            <button type="button" class="btn btn-outline-danger  text-center" data-bs-whatever="@item.biletId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><i class="fas fa-trash"></i></button>
+                            <button type="button" class="btn btn-info" data-bs-whatever="@item.biletId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                         </td>
-                        <td><a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-outline-primary p-2 ">Güncelle</a></td>
+                            <td><a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></td>
                     </tr>
                 }
             </tbody>
 
         </table>
         <div class="text-center d-flex justify-content-start p-2">
-            <a href="/Bilet/ekle" class="btn btn-info"><ion-icon name="add" style=" font-size:30px;"></ion-icon></a>
+                <a href="/Bilet/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
         </div>
     </div>
 </div>
@@ -75,6 +76,8 @@
         </div>
     </div>
 </div>
+</div>
+
 
 <script>
     $(document).ready(function () {

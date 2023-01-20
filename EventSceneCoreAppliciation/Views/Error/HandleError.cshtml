@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+    var code = (String)@ViewBag.code;
+    var msg = @ViewBag.msg;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HandleError</title>
+    <link href="~/errorpage/css/errorpage.css" rel="stylesheet" />
+</head>
+<body>
+    <canvas id="canvas" hidden></canvas>
+    <div class="center">
+        <h1>@code</h1>
+
+        <p>@msg</p>
+    </div>
+
+    <script src="~/errorpage/js/errorpage.js"></script>
+</body>
+</html>

@@ -1,3 +1,5 @@
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +15,8 @@ if (!app.Environment.IsDevelopment())
 	app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/Error/HandleError/{0}");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -24,4 +28,29 @@ app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+                name: "Etkinlik", pattern: "Etkinlik/etkinlik-list", defaults: new { controller = "Etkinlik", action = "Index" }
+                );
+
+
+app.MapControllerRoute(
+                name: "Bilet", pattern: "Bilet/bilet-list", defaults: new { controller = "Bilet", action = "Index" }
+                );
+
+
+app.MapControllerRoute(name: "Salon", pattern: "Salon/salon-list", defaults: new { controller = "Salon", action = "Index" });
+
+
+app.MapControllerRoute(
+                name: "Seans", pattern: "Seans/seans-list", defaults: new { controller = "Seans", action = "Index" }
+                );
+
+app.MapControllerRoute(
+                name: "Seyirci", pattern: "Seyirci/seyirci-list", defaults: new { controller = "Seyirci", action = "Index" }
+                );
+
+
+app.MapControllerRoute(
+                name: "Tur", pattern: "Tur/tur-list", defaults: new { controller = "Tur", action = "Index" }
+                );
 app.Run();
