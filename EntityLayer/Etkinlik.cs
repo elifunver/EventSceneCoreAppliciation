@@ -16,7 +16,7 @@ namespace EntityLayer
         [StringLength(6000)]
         public string aciklama { get; set; }
 
-        public string etkinlikAfis { get; set; }
+        public string? etkinlikAfis { get; set; }
 
         public bool silindi { get; set; }
 

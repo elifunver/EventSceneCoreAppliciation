@@ -103,7 +103,7 @@ namespace DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "seansler",
+                name: "seanslar",
                 columns: table => new
                 {
                     seansId = table.Column<int>(type: "int", nullable: false)
@@ -117,15 +117,15 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_seansler", x => x.seansId);
+                    table.PrimaryKey("PK_seanslar", x => x.seansId);
                     table.ForeignKey(
-                        name: "FK_seansler_etkinlikler_etkinlikId",
+                        name: "FK_seanslar_etkinlikler_etkinlikId",
                         column: x => x.etkinlikId,
                         principalTable: "etkinlikler",
                         principalColumn: "etkinlikId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_seansler_salonlar_salonId",
+                        name: "FK_seanslar_salonlar_salonId",
                         column: x => x.salonId,
                         principalTable: "salonlar",
                         principalColumn: "salonId",
@@ -153,9 +153,9 @@ namespace DataAccessLayer.Migrations
                 {
                     table.PrimaryKey("PK_biletler", x => x.biletId);
                     table.ForeignKey(
-                        name: "FK_biletler_seansler_seansId",
+                        name: "FK_biletler_seanslar_seansId",
                         column: x => x.seansId,
-                        principalTable: "seansler",
+                        principalTable: "seanslar",
                         principalColumn: "seansId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -182,13 +182,13 @@ namespace DataAccessLayer.Migrations
                 column: "turId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_seansler_etkinlikId",
-                table: "seansler",
+                name: "IX_seanslar_etkinlikId",
+                table: "seanslar",
                 column: "etkinlikId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_seansler_salonId",
-                table: "seansler",
+                name: "IX_seanslar_salonId",
+                table: "seanslar",
                 column: "salonId");
         }
 
@@ -202,7 +202,7 @@ namespace DataAccessLayer.Migrations
                 name: "biletler");
 
             migrationBuilder.DropTable(
-                name: "seansler");
+                name: "seanslar");
 
             migrationBuilder.DropTable(
                 name: "seyirciler");

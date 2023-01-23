@@ -247,7 +247,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("salonId");
 
-                    b.ToTable("seansler");
+                    b.ToTable("seanslar");
                 });
 
             modelBuilder.Entity("EntityLayer.Seyirci", b =>

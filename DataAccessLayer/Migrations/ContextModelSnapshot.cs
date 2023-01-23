@@ -135,7 +135,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("etkinlikAfis")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("silindi")
@@ -244,7 +243,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("salonId");
 
-                    b.ToTable("seansler");
+                    b.ToTable("seanslar");
                 });
 
             modelBuilder.Entity("EntityLayer.Seyirci", b =>

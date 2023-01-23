@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230112073929_DbEventScene")]
-    partial class DbEventScene
+    [Migration("20230121185759_etkinlikAfis")]
+    partial class etkinlikAfis
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,7 +61,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("adminId");
 
-                    b.ToTable("Admin");
+                    b.ToTable("adminler");
                 });
 
             modelBuilder.Entity("EntityLayer.Bilet", b =>
@@ -138,7 +138,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("etkinlikAfis")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("silindi")
@@ -152,6 +151,37 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("turId");
 
                     b.ToTable("etkinlikler");
+                });
+
+            modelBuilder.Entity("EntityLayer.Menu", b =>
+                {
+                    b.Property<int>("menuId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("menuId"));
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("parentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("seoUrl")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("silindi")
+                        .HasColumnType("bit");
+
+                    b.HasKey("menuId");
+
+                    b.HasIndex("parentId");
+
+                    b.ToTable("menuler");
                 });
 
             modelBuilder.Entity("EntityLayer.Salon", b =>
@@ -278,6 +308,32 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("seyirciler");
                 });
 
+            modelBuilder.Entity("EntityLayer.Slider", b =>
+                {
+                    b.Property<int>("sliderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("sliderId"));
+
+                    b.Property<string>("resimUrl")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("silindi")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("sliderName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("sliderId");
+
+                    b.ToTable("slider");
+                });
+
             modelBuilder.Entity("EntityLayer.Tur", b =>
                 {
                     b.Property<int>("turId")
@@ -329,6 +385,15 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("tur");
                 });
 
+            modelBuilder.Entity("EntityLayer.Menu", b =>
+                {
+                    b.HasOne("EntityLayer.Menu", "parent")
+                        .WithMany("children")
+                        .HasForeignKey("parentId");
+
+                    b.Navigation("parent");
+                });
+
             modelBuilder.Entity("EntityLayer.Seans", b =>
                 {
                     b.HasOne("EntityLayer.Etkinlik", "etkinlik")
@@ -351,6 +416,11 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Etkinlik", b =>
                 {
                     b.Navigation("seanslar");
+                });
+
+            modelBuilder.Entity("EntityLayer.Menu", b =>
+                {
+                    b.Navigation("children");
                 });
 
             modelBuilder.Entity("EntityLayer.Salon", b =>

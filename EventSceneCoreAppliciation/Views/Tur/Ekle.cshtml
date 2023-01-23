@@ -10,7 +10,7 @@
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
     <h3>Tür Ekle</h3>
-    @using (Html.BeginForm("Ekle", "Tür", FormMethod.Post, new { @class = "form-group" }))
+    @using (Html.BeginForm("Ekle", "Tur", FormMethod.Post, new { @class = "form-group" }))
     {
         @Html.Label("Tür Adı")
         @Html.TextBox("turAd","",new { @class = "form-control" })
