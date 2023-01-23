@@ -24,21 +24,6 @@ namespace BusinessLayer.Validaitons
             RuleFor(bilet => bilet.fiyat).NotEmpty().WithMessage("Bilet fiyatı boş geçilemez !");
             RuleFor(bilet => bilet.fiyat).GreaterThan(0.00).WithMessage("Daha yüksek fiyat girmelisiniz !");
 
-            //Rule For SeyirciAd
-            RuleFor(bilet => bilet.seyirciAd).NotEmpty().WithMessage("Seyirci adı boş geçilemez!");
-            RuleFor(bilet => bilet.seyirciAd).MaximumLength(25).WithMessage("Maksimum 25 karakter girebilirsiniz.");
-            RuleFor(bilet => bilet.seyirciAd).MinimumLength(2).WithMessage("Minimum 2 karakter girebilirsiniz.");
-
-            //Rule For SeyirciSoyad
-            RuleFor(bilet => bilet.seyirciSoyad).NotEmpty().WithMessage("Seyirci soyadı boş geçilemez!");
-            RuleFor(bilet => bilet.seyirciSoyad).MaximumLength(25).WithMessage("Maksimum 25 karakter girebilirsiniz.");
-            RuleFor(bilet => bilet.seyirciSoyad).MinimumLength(2).WithMessage("Minimum 2 karakter girebilirsiniz.");
-
-            //Rule For SeyirciTc
-            RuleFor(bilet => bilet.seyirciTc).NotEmpty().WithMessage("Seyirci Tc boş geçilemez!");
-            RuleFor(bilet => bilet.seyirciTc).MaximumLength(11).WithMessage("Maksimum 11 karakter girebilirsiniz.");
-            RuleFor(bilet => bilet.seyirciTc).MinimumLength(11).WithMessage("Minimum 11 karakter girebilirsiniz.");
-
             //Rule For SeansId
             RuleFor(bilet => bilet.seansId).NotEmpty().WithMessage("Seans Id boş geçilemez!");
 

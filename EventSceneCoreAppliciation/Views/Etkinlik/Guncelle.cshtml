@@ -1,9 +1,11 @@
 ﻿@using EventSceneCoreAppliciation.Models;
 @model EtkinlikTurModel
+
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
@@ -24,22 +26,22 @@
                 @Html.TextBox("etkinlikAfis",Model.etkinlikModel.etkinlikAfis,new { @class = "form-control",@type="file"})
                 @Html.ValidationMessage("etkinlikAfis",new { @class ="text-danger" })
                 <br />
-                 @Html.Label("Tür")
-        <select name="turId"class="form-control">
-          
-            @foreach(var item in Model.turModel)
-            {
-                        @if (Model.etkinlikModel.turId==item.turId)
+                @Html.Label("Tür")
+                <select name="turId" class="form-control">
+
+                    @foreach (var item in Model.turModel)
+                    {
+                        @if (Model.etkinlikModel.turId == item.turId)
                         {
                             <option value="@item.turId" selected>@item.turAd</option>
                         }
                         else
                         {
-                            <option value="@item.turId">@item.turAd</option>                            
+                            <option value="@item.turId">@item.turAd</option>
                         }
-            }
-        </select>
-        <br />
+                    }
+                </select>
+                <br />
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
                     @if (Model.etkinlikModel.silindi)
@@ -49,8 +51,8 @@
                     }
                     else
                     {
-                    <option value="False" sel>Aktif</option>
-                    <option value="True">Pasif</option>   
+                        <option value="False" sel>Aktif</option>
+                        <option value="True">Pasif</option>
                     }
                 </select>
                 <br />

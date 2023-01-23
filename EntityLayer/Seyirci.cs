@@ -11,6 +11,12 @@ namespace EntityLayer
     {
         [Key]
         public int seyirciId { get; set; }
+        [StringLength(25)]
+        public string seyirciAd { get; set; }
+        [StringLength(25)]
+        public string seyirciSoyad { get; set; }
+        [StringLength(11)]
+        public string seyirciTc { get; set; }
         [StringLength(50)]
         public string kullaniciAd { get; set; }
         [StringLength(50)]
@@ -24,9 +30,6 @@ namespace EntityLayer
         [StringLength(11)]
         public string kullaniciTc { get; set; }
         [StringLength(50)]
-        public string seyirciAd { get; set; }
-        [StringLength(50)]
-        public string seyirciSoyad { get; set; }
         public DateTime dogumTarihi { get; set; }
         public bool silindi { get; set; }
 

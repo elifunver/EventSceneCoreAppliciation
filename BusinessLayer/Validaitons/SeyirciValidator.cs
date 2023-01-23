@@ -12,43 +12,35 @@ namespace BusinessLayer.Validaitons
     {
         public SeyirciValidator()
         {
-            //Rule for KullaniciAd
-            RuleFor(kullanici => kullanici.kullaniciAd).NotEmpty().WithMessage("Kullanıcı adı boş geçilemez!");
-            RuleFor(kullanici => kullanici.kullaniciAd).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.kullaniciAd).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.seyirciAd).NotEmpty().WithMessage("Seyirci adı boş geçilemez!");
+            RuleFor(seyirci => seyirci.seyirciAd).MaximumLength(25).WithMessage("Maksimum 25 karakter girebilirsiniz.");
+            RuleFor(seyirci => seyirci.seyirciAd).MinimumLength(2).WithMessage("Minimum 2 karakter girebilirsiniz.");
 
-            //Rule for KullaniciSifre
-            RuleFor(kullanici => kullanici.kullaniciSifre).NotEmpty().WithMessage("Kullanıcı şifresi boş geçilemez!");
-            RuleFor(kullanici => kullanici.kullaniciSifre).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.kullaniciSifre).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.seyirciSoyad).NotEmpty().WithMessage("Seyirci soyadı boş geçilemez!");
+            RuleFor(seyirci => seyirci.seyirciSoyad).MaximumLength(25).WithMessage("Maksimum 25 karakter girebilirsiniz.");
+            RuleFor(seyirci => seyirci.seyirciSoyad).MinimumLength(2).WithMessage("Minimum 2 karakter girebilirsiniz.");
 
-            //Rule for  seyirciAd
-            RuleFor(kullanici => kullanici.seyirciAd).NotEmpty().WithMessage("Seyirci adı boş geçilemez!");
-            RuleFor(kullanici => kullanici.seyirciAd).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.seyirciAd).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.seyirciTc).NotEmpty().WithMessage("Seyirci Tc boş geçilemez!");
+            RuleFor(seyirci => seyirci.seyirciTc).MaximumLength(11).WithMessage("Maksimum 11 karakter girebilirsiniz.");
+            RuleFor(seyirci => seyirci.seyirciTc).MinimumLength(11).WithMessage("Minimum 11 karakter girebilirsiniz.");
 
-            //Rule for  seyirciSoyad
-            RuleFor(kullanici => kullanici.seyirciSoyad).NotEmpty().WithMessage("Seyirci soyadı boş geçilemez!");
-            RuleFor(kullanici => kullanici.seyirciSoyad).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.seyirciSoyad).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciAd).NotEmpty().WithMessage("Kullanıcı adı boş geçilemez!");
+            RuleFor(seyirci => seyirci.kullaniciAd).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciAd).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
 
-            //Rule for  dogumTarihi
-            RuleFor(kullanici => kullanici.dogumTarihi).NotEmpty().WithMessage("Doğum tarihi boş geçilemez!");
+            RuleFor(seyirci => seyirci.kullaniciSifre).NotEmpty().WithMessage("Kullanıcı şifresi boş geçilemez!");
+            RuleFor(seyirci => seyirci.kullaniciSifre).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciSifre).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
 
-            //Rule for  kullaniciTc
-            RuleFor(kullanici => kullanici.kullaniciTc).NotEmpty().WithMessage("Kullanıcı TC boş geçilemez!");
-            RuleFor(kullanici => kullanici.kullaniciTc).MaximumLength(11).WithMessage("Maximum 11 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.kullaniciTc).MinimumLength(11).WithMessage("Minimum 11 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.dogumTarihi).NotEmpty().WithMessage("Doğum tarihi boş geçilemez!");
 
-            //Rule for kullaniciMail
-            RuleFor(kullanici => kullanici.kullaniciMail).NotEmpty().WithMessage("Kullanıcı mail boş geçilemez!");
-            RuleFor(kullanici => kullanici.kullaniciMail).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.kullaniciMail).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciMail).NotEmpty().WithMessage("Kullanıcı mail boş geçilemez!");
+            RuleFor(seyirci => seyirci.kullaniciMail).MaximumLength(50).WithMessage("Maximum 50 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciMail).MinimumLength(2).WithMessage("Minimum 2 karakter girilmelidir.");
 
-            //Rule for  kullaniciTel
-            RuleFor(kullanici => kullanici.kullaniciTel).NotEmpty().WithMessage("Kullanıcı tel boş geçilemez!");
-            RuleFor(kullanici => kullanici.kullaniciTel).MaximumLength(11).WithMessage("Maximum 11 karakter girilmelidir.");
-            RuleFor(kullanici => kullanici.kullaniciTel).MinimumLength(11).WithMessage("Minimum 11  karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciTel).NotEmpty().WithMessage("Kullanıcı tel boş geçilemez!");
+            RuleFor(seyirci => seyirci.kullaniciTel).MaximumLength(11).WithMessage("Maximum 11 karakter girilmelidir.");
+            RuleFor(seyirci => seyirci.kullaniciTel).MinimumLength(11).WithMessage("Minimum 11  karakter girilmelidir.");
         }
     }
 }
