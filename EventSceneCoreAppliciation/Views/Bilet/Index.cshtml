@@ -1,5 +1,5 @@
 ﻿@using EntityLayer
-@model List<Bilet>;
+@model List<Bilet>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,7 +12,6 @@
         <h2>Biletler</h2>
 
         <table class="table">
-
             <thead>
                 <tr>
                     <th>Seri No</th>
@@ -36,11 +35,10 @@
                         <td>@item.seriNo</td>
                         <td>@item.odemeTipi</td>
                         <td>@item.biletKesimTarihi</td>
-                        <td>@item.seyirciAd</td>
-                        <td>@item.seyirciSoyad</td>
-                        <td>@item.seyirciTc</td>
-                        <td>@item.seans.saat - @item.seans.tarih </td>
                         <td>@item.seyirci.seyirciAd</td>
+                        <td>@item.seyirci.seyirciSoyad</td>
+                        <td>@item.seyirci.seyirciTc</td>
+                        <td>@item.seans.saat - @item.seans.tarih </td>
                         <td>@item.silindi</td>
                         <td>
                             <button type="button" class="btn btn-info" data-whatever="@item.biletId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
@@ -57,8 +55,6 @@
     </div>
 </div>
 
-<!-- Modal -->
-@*#decisionPopup Model*@
 <div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

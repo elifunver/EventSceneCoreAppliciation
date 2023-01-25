@@ -1,4 +1,4 @@
-﻿@using EventSceneCoreAppliciation.Models;
+﻿@using EventSceneCoreAppliciation.Models
 @model BiletSeansSeyirciModel
 
 @{
@@ -55,6 +55,8 @@
                 @Html.Label("Seans Tarih Saatleri")
                 <select id="seansId" name="seansId" class="form-control">
                 </select>
+                <br />
+
                 @Html.Label("Kullanıcı Adı")
                 <select name="seyirciId" class="form-control">
                     @foreach (var item in Model.seyirciModel)
@@ -62,7 +64,6 @@
                         <option value="@item.seyirciId">@item.seyirciAd</option>
                     }
                 </select>
-                <br />
                 <br />
 
                 @Html.Label("Durum")

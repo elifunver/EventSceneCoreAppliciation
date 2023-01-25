@@ -1,5 +1,6 @@
 ﻿@using EntityLayer
 @model MenuParentListModel
+
 @{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,34 +8,37 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
-<h3>Ekle</h3>
-@using (Html.BeginForm("Ekle", "Menu", FormMethod.Post, new { @class = "form-group" }))
-{
+            <h3>Ekle</h3>
 
-    @Html.Label("Menu Adı")
-    @Html.TextBox("name","",new { @class = "form-control"})
-    <br />
-    @Html.Label("Seo Url")
-    @Html.TextBox("seoUrl","",new { @class = "form-control"})
-    <br />
-    @Html.Label("Parent")
-    <select name="parentId" class="form-control">
-        <option value="Null">Kendisi</option>
-        @foreach (var item in Model.menuListModel)
-        {
-            <option value="@item.menuId">@item.name</option>
-        }
-    </select>
-    <br />
-    @Html.Label("Silindi")
-    <select name="silindi" class="form-control">
-        <option value="false" selected>hayır</option>
-        <option value="true">sil</option>
+            @using (Html.BeginForm("Ekle", "Menu", FormMethod.Post, new { @class = "form-group" }))
+            {
+                @Html.Label("Menu Adı")
+                @Html.TextBox("name","",new { @class = "form-control"})
+                <br />
 
-    </select>
-    <br />
-    <input class="form-control btn btn-primary" type="submit" value="Menu Ekle" />
-}
-</div>
-</div>
+                @Html.Label("Seo Url")
+                @Html.TextBox("seoUrl","",new { @class = "form-control"})
+                <br />
+
+                @Html.Label("Parent")
+                <select name="parentId" class="form-control">
+                    <option value="Null">Kendisi</option>
+                    @foreach (var item in Model.menuListModel)
+                    {
+                        <option value="@item.menuId">@item.name</option>
+                    }
+                </select>
+                <br />
+
+                @Html.Label("Silindi")
+                <select name="silindi" class="form-control">
+                    <option value="false" selected>hayır</option>
+                    <option value="true">sil</option>
+                </select>
+                <br />
+
+                <input class="form-control btn btn-primary" type="submit" value="Menu Ekle" />
+            }
+        </div>
+    </div>
 </div>

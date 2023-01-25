@@ -1,5 +1,6 @@
 ﻿@using EntityLayer
-@model List<Seyirci>;
+@model List<Seyirci>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -23,6 +24,7 @@
                         <th>Durum</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @foreach (var item in Model)
                     {
@@ -43,8 +45,8 @@
                             <td><a href="/Seyirci/guncelle/@item.seyirciId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
                         </tr>
                     }
-
                 </tbody>
+
             </table>
             <div class="text-center d-flex justify-content-start p-2">
                 <a href="/Seyirci/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
@@ -53,8 +55,6 @@
     </div>
 </div>
 
-<!-- Modal -->
-@*#decisionPopup Model*@
 <div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -72,6 +72,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {

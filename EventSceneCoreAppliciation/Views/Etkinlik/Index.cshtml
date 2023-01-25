@@ -1,5 +1,6 @@
 ﻿@using EntityLayer
-@model List<Etkinlik>;
+@model List<Etkinlik>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -17,7 +18,8 @@
                     <th>Tür Adı</th>
                     <th>Durum</th>
                 </tr>
-            </thead>      
+            </thead>
+
             <tbody>
                 @foreach (var item in Model)
                 {
@@ -37,12 +39,14 @@
                         <td>
                             <button type="button" class="btn btn-info" data-whatever="@item.etkinlikId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                         </td>
-                        <td><a href="/Etkinlik/guncelle/@item.etkinlikId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
+                        <td>
+                            <a href="/Etkinlik/guncelle/@item.etkinlikId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a>
+                        </td>
                     </tr>
                 }
-
             </tbody>
         </table>
+
         <div class="text-center d-flex justify-content-start p-2">
             <a href="/Etkinlik/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
         </div>
@@ -50,8 +54,6 @@
 </div>
 </div>
 
-<!-- Modal -->
-@*#decisionPopup Model*@
 <div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -69,6 +71,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {

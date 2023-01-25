@@ -1,42 +1,46 @@
 ﻿@using EntityLayer
 @model SeansEtkinlikSalonModel
+
 @{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
             <h3>Seans Ekle</h3>
+
             @using (Html.BeginForm("Ekle", "Seans", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.Label("Seans Süre")
                 @Html.TextBox("sure","",new { @class = "form-control" })
                 @Html.ValidationMessage("sure","",new { @class ="text-danger" })
                 <br />
+
                 @Html.Label("Seans Tarih")
                 @Html.TextBox("tarih","",new { @class = "form-control" })
                 @Html.ValidationMessage("tarih","",new { @class ="text-danger" })
                 <br />
-                 @Html.Label("Seans Saat")
+
+                @Html.Label("Seans Saat")
                 @Html.TextBox("saat","",new { @class = "form-control" })
                 @Html.ValidationMessage("saat","",new { @class ="text-danger" })
                 <br />
-                  @Html.Label("Salon Adı")
-        <select name="salonId" class="form-control">
-            @foreach (var item in Model.salonModel)
-            {
-                <option value="@item.salonId">@item.salonAd</option>
-            }
-        </select>
-                   @Html.Label("Etkinlik Adı")
-        <select name="etkinlikId" class="form-control">
-            @foreach (var item in Model.etkinlikModel)
-            {
-                <option value="@item.etkinlikId">@item.etkinlikAd</option>
-            }
-        </select>
+
+                @Html.Label("Salon Adı")
+                <select name="salonId" class="form-control">
+                    @foreach (var item in Model.salonModel)
+                    {
+                        <option value="@item.salonId">@item.salonAd</option>
+                    }
+                </select>
+                @Html.Label("Etkinlik Adı")
+                <select name="etkinlikId" class="form-control">
+                    @foreach (var item in Model.etkinlikModel)
+                    {
+                        <option value="@item.etkinlikId">@item.etkinlikAd</option>
+                    }
+                </select>
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
@@ -50,4 +54,3 @@
         </div>
     </div>
 </div>
-

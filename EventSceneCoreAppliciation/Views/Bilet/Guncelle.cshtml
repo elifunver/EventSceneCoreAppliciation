@@ -1,4 +1,4 @@
-﻿@using EntityLayer;
+﻿@using EntityLayer
 @model BiletSeansSeyirciModel
 
 @{
@@ -17,39 +17,48 @@
         @Html.TextBox("seriNo","",new { @class = "form-control" })
         @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Ödeme Tipi")
         <select class="form-control" name="odemeTipi">
                 <option selected>True</option>
                 <option>False</option>
         </select>
         <br />
+
         @Html.Label("Bilet Kesim Tarihi")
         @Html.TextBox("biletKesimTarihi","",new { @class = "form-control" })
         @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Seyirci Adı")
         @Html.TextBox("seyirciAd","",new { @class = "form-control" })
         @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Seyirci Soyadı")
         @Html.TextBox("seyirciSoyad","",new { @class = "form-control" })
         @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Seyirci Tc")
         @Html.TextBox("seyirciTc","",new { @class = "form-control" })
         @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Seans Id")
         @Html.TextBox("seansId","",new { @class = "form-control",@name="seansId",@value="@Model.seansId" })
         @Html.ValidationMessage("seansId",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Seans Tarih Saatleri")
         <select id="seansId" name="seansId" class="form-control">
         </select>
+
         @Html.Label("Seyirci Id")
         @Html.TextBox("seyirciId" ,"",new { @class = "form-control",@name="seyirciId",@value="@Model.seyirciId" })
         @Html.ValidationMessage("seyirciId",new { @class ="text-danger" })
         <br />
+
         @Html.Label("Durum")
         <select class="form-control" name="silindi">
             <option value="False">False</option>

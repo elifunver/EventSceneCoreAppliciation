@@ -1,5 +1,6 @@
 ﻿@using EntityLayer
-@model List<Salon>;
+@model List<Salon>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -7,41 +8,38 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Salon Adı</th>
-                    <th>Kapasite</th>
-                    <th>Durum</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>@item.salonAd</td>
-                        <td>@item.kapasite</td>
-                        <td>@item.silindi</td>
-                        <td>
-                                <button type="button" class="btn btn-info" data-bs-whatever="@item.salonId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
-                        </td>
-                        <td><a href="/Salon/guncelle/@item.salonId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
+                        <th>Salon Adı</th>
+                        <th>Kapasite</th>
+                        <th>Durum</th>
                     </tr>
-                }
+                </thead>
 
-            </tbody>
-        </table>
-        <div class="text-center d-flex justify-content-start p-2">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.salonAd</td>
+                            <td>@item.kapasite</td>
+                            <td>@item.silindi</td>
+                            <td>
+                                <button type="button" class="btn btn-info" data-bs-whatever="@item.salonId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                            </td>
+                            <td><a href="/Salon/guncelle/@item.salonId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="text-center d-flex justify-content-start p-2">
                 <a href="/Salon/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
+            </div>
         </div>
     </div>
 </div>
-</div>
 
-
-
-<!-- Modal -->
-@*#decisionPopup Model*@
 <div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -58,17 +56,17 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#decisionPopup').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget);
-                var salonId = button.attr('data-bs-whatever');
-                console.log(salonId);
-                var a = document.querySelector("#delete-btn");
-                a.href = "/Salon/sil/" + salonId
-            });
+<script>
+    $(document).ready(function () {
+        $('#decisionPopup').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var salonId = button.attr('data-bs-whatever');
+            console.log(salonId);
+            var a = document.querySelector("#delete-btn");
+            a.href = "/Salon/sil/" + salonId
         });
-    </script>
+    });
+</script>

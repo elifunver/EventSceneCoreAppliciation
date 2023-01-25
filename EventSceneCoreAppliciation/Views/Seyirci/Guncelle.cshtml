@@ -1,5 +1,6 @@
 ﻿@using EventSceneCoreAppliciation.Models;
 @model BiletSeansSeyirciModel
+
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,46 +9,56 @@
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
             <h3>Seyirci Güncelle</h3>
+
             @using (Html.BeginForm("Guncelle", "Seyirci", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.TextBox("seyirciId","",new { @class = "form-control",@name="seyirciId",@value="@Model.seyirciId",@type="hidden"})
-               
+
                 @Html.Label("Kullanıcı Adı")
                 @Html.TextBox("kullanıcıAd","",new { @class = "form-control",@name="kullaniciAd",@value="@Model.kullaniciAd" })
                 @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
                 <br />
+
                 @Html.Label("Kullanici Şifre")
                 @Html.TextBox("kullaniciSifre","",new { @class = "form-control",@name="kullaniciSifre",@value="@Model.kullaniciSifre" })
                 @Html.ValidationMessage("kullaniciSifre",new { @class ="text-danger" })
                 <br />
+
                 @Html.Label("Kulanici Tür")
                 @Html.TextBox("kullaniciTur","",new { @class = "form-control", @type="file", @name="kullaniciTur",@value="@Model.kullaniciTur" })
                 @Html.ValidationMessage("kullaniciTur",new { @class ="text-danger" })
                 <br />
-                 @Html.Label("Kulanici Tel")
+
+                @Html.Label("Kulanici Tel")
                 @Html.TextBox("kullaniciTel","",new { @class = "form-control", @type="file", @name="kullaniciTel",@value="@Model.kullaniciTel" })
                 @Html.ValidationMessage("kullaniciTel",new { @class ="text-danger" })
                 <br />
-                 @Html.Label("Kulanici Mail")
+
+                @Html.Label("Kulanici Mail")
                 @Html.TextBox("kullaniciMail","",new { @class = "form-control", @type="file", @name="kullaniciMail",@value="@Model.kullaniciMail" })
                 @Html.ValidationMessage("kullaniciMail",new { @class ="text-danger" })
                 <br />
-                 @Html.Label("Kulanici Tc")
+
+                @Html.Label("Kulanici Tc")
                 @Html.TextBox("kullaniciTc","",new { @class = "form-control", @type="file", @name="kullaniciTc",@value="@Model.kullaniciTc" })
                 @Html.ValidationMessage("kullaniciTc",new { @class ="text-danger" })
                 <br />
-                 @Html.Label("Seyirci Adı")
+
+                @Html.Label("Seyirci Adı")
                 @Html.TextBox("seyirciAd","",new { @class = "form-control", @type="file", @name="seyirciAd",@value="@Model.seyirciAd" })
                 @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
                 <br />
+
                 @Html.Label("Seyirci Soyadı")
                 @Html.TextBox("seyirciSoyad","",new { @class = "form-control", @type="file", @name="seyirciSoyad",@value="@Model.seyirciSoyad" })
                 @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
                 <br />
+
                 @Html.Label("Seyirci Doğum Tarihi")
                 @Html.TextBox("dogumTarihi","",new { @class = "form-control", @type="file", @name="dogumTarihi",@value="@Model.dogumTarihi" })
                 @Html.ValidationMessage("dogumTarihi",new { @class ="text-danger" })
                 <br />
+
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
                     <option value="False">False</option>
