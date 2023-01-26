@@ -40,15 +40,14 @@ namespace EventSceneCoreAppliciation.Controllers
             }
             else
             {
-                BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
-                model.seansModel = seansm.seansListele();
-                model.seyirciModel = seyircim.seyirciListele();
-                model.biletModel = bilet;
-
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
+                BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+                model.seansModel = seansm.seansListele();
+                model.seyirciModel = seyircim.seyirciListele();
+                model.biletModel = bilet;
                 return View(model);
             }
         }
@@ -64,8 +63,8 @@ namespace EventSceneCoreAppliciation.Controllers
         public IActionResult Guncelle(int id)
         {
             BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
-            model.seansModel = seansm.seansListele();
-            model.seyirciModel = seyircim.seyirciListele();
+            model.seansModel=seansm.seansListele();
+            model.seyirciModel=seyircim.seyirciListele();
             model.biletModel = biletm.biletGetById(id);
             return View(model);
         }
@@ -94,7 +93,6 @@ namespace EventSceneCoreAppliciation.Controllers
                 }
                 return View(model);
             }
-
         }
     }
 }

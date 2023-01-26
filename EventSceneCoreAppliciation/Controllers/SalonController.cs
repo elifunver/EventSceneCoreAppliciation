@@ -2,6 +2,7 @@
 using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
+using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventSceneCoreAppliciation.Controllers
@@ -32,7 +33,6 @@ namespace EventSceneCoreAppliciation.Controllers
             {
                 salonm.salonEkle(salon);
                 return RedirectToAction("Index");
-
             }
 
             else
