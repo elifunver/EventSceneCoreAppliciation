@@ -14,8 +14,8 @@
             @using (Html.BeginForm("Guncelle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.TextBox("etkinlikId",Model.etkinlikModel.etkinlikId,new { @class = "form-control" ,@type="hidden"})
+                
                 @Html.Label("Etkinlik Adı")
-
                 @Html.TextBox("etkinlikAd",Model.etkinlikModel.etkinlikAd,new { @class = "form-control"})
                 @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
                 <br />

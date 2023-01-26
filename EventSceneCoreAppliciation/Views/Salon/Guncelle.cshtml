@@ -12,20 +12,20 @@
 
             @using (Html.BeginForm("Guncelle", "Seans", FormMethod.Post, new { @class = "form-group" }))
             {
-                @Html.TextBox("seansId","",new { @class = "form-control",@name="seansId",@value="@Model.seansId",@type="hidden"})
+                @Html.TextBox("seansId",Model.seansModel.seansId,new { @class = "form-control", @type="hidden"})
               
                 @Html.Label("Seans Süre")
-                @Html.TextBox("sure","",new { @class = "form-control",@name="sure",@value="@Model.sure" })
+                @Html.TextBox("sure",Model.seansModel.sure,new { @class = "form-control" })
                 @Html.ValidationMessage("sure",new { @class ="text-danger" })
                 <br />
 
                @Html.Label("Seans Tarih")
-                @Html.TextBox("tarih","",new { @class = "form-control",@name="tarih",@value="@Model.tarih" })
+                @Html.TextBox("tarih",Model.seansModel.tarih,new { @class = "form-control" })
                 @Html.ValidationMessage("tarih",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Seans Saat")
-                @Html.TextBox("saat","",new { @class = "form-control", @type="file", @name="saat",@value="@Model.saat" })
+                @Html.TextBox("saat",Model.seansModel.saat,new { @class = "form-control", @type="file" })
                 @Html.ValidationMessage("saat",new { @class ="text-danger" })
                 <br />
 
