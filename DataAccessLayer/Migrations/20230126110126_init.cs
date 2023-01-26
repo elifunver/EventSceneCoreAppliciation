@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class DbEventScene : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Admin",
+                name: "adminler",
                 columns: table => new
                 {
                     adminId = table.Column<int>(type: "int", nullable: false)
@@ -25,7 +25,28 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Admin", x => x.adminId);
+                    table.PrimaryKey("PK_adminler", x => x.adminId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "menuler",
+                columns: table => new
+                {
+                    menuId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    seoUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    parentId = table.Column<int>(type: "int", nullable: true),
+                    silindi = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_menuler", x => x.menuId);
+                    table.ForeignKey(
+                        name: "FK_menuler_menuler_parentId",
+                        column: x => x.parentId,
+                        principalTable: "menuler",
+                        principalColumn: "menuId");
                 });
 
             migrationBuilder.CreateTable(
@@ -49,20 +70,36 @@ namespace DataAccessLayer.Migrations
                 {
                     seyirciId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    seyirciAd = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    seyirciSoyad = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    seyirciTc = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     kullaniciAd = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     kullaniciSifre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     kullaniciTur = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     kullaniciTel = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     kullaniciMail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     kullaniciTc = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    seyirciAd = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    seyirciSoyad = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    dogumTarihi = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    dogumTarihi = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
                     silindi = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_seyirciler", x => x.seyirciId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "slider",
+                columns: table => new
+                {
+                    sliderId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    sliderName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    resimUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    silindi = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_slider", x => x.sliderId);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,7 +124,7 @@ namespace DataAccessLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     etkinlikAd = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     aciklama = table.Column<string>(type: "nvarchar(max)", maxLength: 6000, nullable: false),
-                    etkinlikAfis = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    etkinlikAfis = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     silindi = table.Column<bool>(type: "bit", nullable: false),
                     turId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -138,9 +175,6 @@ namespace DataAccessLayer.Migrations
                 {
                     biletId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    seyirciAd = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    seyirciSoyad = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    seyirciTc = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
                     fiyat = table.Column<double>(type: "float", nullable: false),
                     seriNo = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     odemeTipi = table.Column<bool>(type: "bit", nullable: false),
@@ -182,6 +216,11 @@ namespace DataAccessLayer.Migrations
                 column: "turId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_menuler_parentId",
+                table: "menuler",
+                column: "parentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_seanslar_etkinlikId",
                 table: "seanslar",
                 column: "etkinlikId");
@@ -196,10 +235,16 @@ namespace DataAccessLayer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Admin");
+                name: "adminler");
 
             migrationBuilder.DropTable(
                 name: "biletler");
+
+            migrationBuilder.DropTable(
+                name: "menuler");
+
+            migrationBuilder.DropTable(
+                name: "slider");
 
             migrationBuilder.DropTable(
                 name: "seanslar");
