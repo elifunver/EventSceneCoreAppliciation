@@ -10,8 +10,8 @@ namespace EventSceneCoreAppliciation.Controllers
     public class BiletController : Controller
     {
         BiletManager biletm = new BiletManager(new EfBiletRepository());
-        SeansManager seansManager = new SeansManager(new EfSeansRepository());
-        SeyirciManager seyirciManager = new SeyirciManager(new EfSeyirciRepository());
+        SeansManager seansm = new SeansManager(new EfSeansRepository());
+        SeyirciManager seyircim = new SeyirciManager(new EfSeyirciRepository());
         public IActionResult Index()
         {
             var biletler = biletm.biletListele();
@@ -20,11 +20,11 @@ namespace EventSceneCoreAppliciation.Controllers
         [HttpGet]
         public IActionResult Ekle()
         {
-            BiletSeansSeyirciModel biletSeansSeyirciModel = new BiletSeansSeyirciModel();
-            biletSeansSeyirciModel.seansModel = seansManager.seansListele();
-            biletSeansSeyirciModel.seyirciModel = seyirciManager.seyirciListele();
-            biletSeansSeyirciModel.biletModel = new Bilet();
-            return View(biletSeansSeyirciModel);
+            BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+            model.seansModel = seansm.seansListele();
+            model.seyirciModel = seyircim.seyirciListele();
+            model.biletModel = new Bilet();
+            return View(model);
         }
 
         [HttpPost]
@@ -32,6 +32,7 @@ namespace EventSceneCoreAppliciation.Controllers
         {
             BiletValidator biletValidator = new BiletValidator();
             var result = biletValidator.Validate(bilet);
+
             if (result.IsValid)
             {
                 biletm.biletEkle(bilet);
@@ -39,15 +40,16 @@ namespace EventSceneCoreAppliciation.Controllers
             }
             else
             {
+                BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+                model.seansModel = seansm.seansListele();
+                model.seyirciModel = seyircim.seyirciListele();
+                model.biletModel = bilet;
+
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                BiletSeansSeyirciModel biletSeansSeyirciModel = new BiletSeansSeyirciModel();
-                biletSeansSeyirciModel.seansModel = seansManager.seansListele();
-                biletSeansSeyirciModel.seyirciModel = seyirciManager.seyirciListele();
-                biletSeansSeyirciModel.biletModel = bilet;
-                return View(biletSeansSeyirciModel);
+                return View(model);
             }
         }
         public IActionResult Sil(int id)
@@ -57,30 +59,40 @@ namespace EventSceneCoreAppliciation.Controllers
             biletm.biletGuncelle(bilet);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
         public IActionResult Guncelle(int id)
         {
-            Bilet bilet = biletm.biletGetById(id);
-            return View(bilet);
+            BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+            model.seansModel = seansm.seansListele();
+            model.seyirciModel = seyircim.seyirciListele();
+            model.biletModel = biletm.biletGetById(id);
+            return View(model);
         }
+
         [HttpPost]
         public IActionResult Guncelle(Bilet bilet)
         {
-
             BiletValidator biletValidator = new BiletValidator();
             var result = biletValidator.Validate(bilet);
+
             if (result.IsValid)
             {
                 biletm.biletGuncelle(bilet);
                 return RedirectToAction("Index");
-
             }
             else
             {
+                BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+                model.seansModel = seansm.seansListele();
+                model.seyirciModel = seyircim.seyirciListele();
+                model.biletModel = bilet;
+
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(bilet);
+                return View(model);
             }
 
         }

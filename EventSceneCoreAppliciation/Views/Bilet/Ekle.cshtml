@@ -8,7 +8,9 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
+
             <h3>Bilet Ekle</h3>
+
             @using (Html.BeginForm("Ekle", "Bilet", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.Label("Seri No")
@@ -28,6 +30,15 @@
                 @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
                 <br />
 
+                @Html.Label("Seanslar")
+                <select name="seansId" class="form-control">
+                    @foreach (var item in Model.seansModel)
+                    {
+                        <option value="@item.seansId">@item.saat @item.tarih.ToString().Split(" ")[0]</option>
+                    }
+                </select>
+                <br />
+
                 @Html.Label("Seyirci Adı")
                 @Html.TextBox("seyirciAd","",new { @class = "form-control" })
                 @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
@@ -39,31 +50,13 @@
                 <br />
 
                 @Html.Label("Seyirci Tc")
-                @Html.TextBox("seyirciTc","",new { @class = "form-control" })
-                @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
-                <br />
-
-                @Html.Label("Seanslar")
-                <select name="seansId" class="form-control">
-                    @foreach (var item in Model.seansModel)
-                    {
-                        <option value="@item.seansId">@item.saat @item.tarih.ToString().Split(" ")[0]</option>
-                    }
-                </select>
-                <br />
-
-                @Html.Label("Seans Tarih Saatleri")
-                <select id="seansId" name="seansId" class="form-control">
-                </select>
+                @Html.TextBox("seyirciAd","",new { @class = "form-control" })
+                @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Kullanıcı Adı")
-                <select name="seyirciId" class="form-control">
-                    @foreach (var item in Model.seyirciModel)
-                    {
-                        <option value="@item.seyirciId">@item.seyirciAd</option>
-                    }
-                </select>
+                @Html.TextBox("kullaniciAd","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Durum")

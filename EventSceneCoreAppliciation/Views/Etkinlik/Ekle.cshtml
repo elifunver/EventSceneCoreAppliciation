@@ -9,49 +9,48 @@
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
 
-    <h3>Etkinlik Ekle</h3>
+            <h3>Etkinlik Ekle</h3>
 
-    @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
-    {
-        <div class="form-group">
-        @Html.Label("Etkinlik Adı")
-        @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
-        @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
-        </div>
-        <br />
-
-        <div class="form-group">
-        @Html.Label("Etkinlik Açıklama")
-        @Html.TextBox("aciklama","",new { @class = "form-control" })
-        @Html.ValidationMessage("aciklama",new { @class ="text-danger" })
-        </div>
-        <br />
-
-        <div class="form-group">
-        @Html.Label("Etkinlik Afiş")
-         @Html.TextBox("etkinlikAfis","",new { @class = "form-control",@type="file" })
-        </div>
-        <br />
-
-        @Html.Label("Tür")
-        <select name="turId"class="form-control">
-          
-            @foreach(var item in Model.turModel)
+            @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
             {
-                <option value="@item.turId">@item.turAd</option>
-          }
-        </select>
-        <br />
+                <div class="form-group">
+                    @Html.Label("Etkinlik Adı")
+                    @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
+                    @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
+                </div>
+                <br />
 
-        @Html.Label("Durum")
-        <select  class="form-control" name="silindi">
-            <option value="False">Aktif</option>
-            <option value="True">Pasif</option>
-        </select>
-        <br />
+                <div class="form-group">
+                    @Html.Label("Etkinlik Açıklama")
+                    @Html.TextBox("aciklama","",new { @class = "form-control" })
+                    @Html.ValidationMessage("aciklama",new { @class ="text-danger" })
+                </div>
+                <br />
 
-        <input class="form-control btn btn-primary" type="submit" value="Etkinlik Ekle" />
-    }
-</div>
-</div>
+                <div class="form-group">
+                    @Html.Label("Etkinlik Afiş")
+                    @Html.TextBox("etkinlikAfis","",new { @class = "form-control",@type="file" })
+                </div>
+                <br />
+
+                @Html.Label("Tür")
+                <select name="turId" class="form-control">
+                    @foreach (var item in Model.turModel)
+                    {
+                        <option value="@item.turId">@item.turAd</option>
+                    }
+                </select>
+                <br />
+
+                @Html.Label("Durum")
+                <select class="form-control" name="silindi">
+                    <option value="False">Aktif</option>
+                    <option value="True">Pasif</option>
+                </select>
+                <br />
+
+                <input class="form-control btn btn-primary" type="submit" value="Etkinlik Ekle" />
+            }
+        </div>
+    </div>
 </div>
