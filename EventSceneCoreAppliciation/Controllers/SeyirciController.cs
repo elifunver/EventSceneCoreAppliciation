@@ -40,7 +40,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(seyirci);
+                return View();
             }
         }
 
@@ -52,6 +52,7 @@ namespace EventSceneCoreAppliciation.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult guncelle(int id)
         {
             Seyirci seyirci = seyircim.seyirciGetById(id);
@@ -76,7 +77,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View();
+                return View(seyirci);
             }
         }
     }
