@@ -1,5 +1,5 @@
 ﻿@using EventSceneCoreAppliciation.Models
-@model BiletSeansSeyirciModel
+@model BiletSeansKullaniciModel
 
 @{
     ViewData["Title"] = "Ekle";
@@ -13,56 +13,102 @@
 
             @using (Html.BeginForm("Ekle", "Bilet", FormMethod.Post, new { @class = "form-group" }))
             {
-                @Html.Label("Seri No")
-                @Html.TextBox("seriNo","",new { @class = "form-control" })
-                @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
+                <div class="form-group">
+                    @Html.Label("Seyirci Adı")
+                    @Html.TextBox("seyirciAd","",new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seyirci Soyadı")
+                    @Html.TextBox("seyirciSoyad","",new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seyirci Tc No")
+                    @Html.TextBox("seyirciTc","",new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seyirci Türü")
+                    @Html.TextBox("seyirciTur","",new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciTur",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Bilet Fiyatı")
+                    @Html.TextBox("fiyat","",new { @class = "form-control" })
+                    @Html.ValidationMessage("fiyat",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seri No")
+                    @Html.TextBox("seriNo","",new { @class = "form-control" })
+                    @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
+                </div>
                 <br />
 
                 @Html.Label("Ödeme Tipi")
                 <select class="form-control" name="odemeTipi">
-                    <option>False</option>
-                    <option>True</option>
+                    <option value="False">Kredi Kartı</option>
+                    <option value="True">Nakit</option>
                 </select>
                 <br />
 
-                @Html.Label("Bilet Kesim Tarihi")
-                @Html.TextBox("biletKesimTarihi","",new { @class = "form-control" })
-                @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
+                <div class="form-group">
+                    @Html.Label("Bilet Kesim Tarihi")
+                    @Html.TextBox("biletKesimTarihi","",new { @class = "form-control" })
+                    @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
+                </div>
                 <br />
 
-                @Html.Label("Seanslar")
+                @Html.Label("Seans Süresi")
                 <select name="seansId" class="form-control">
                     @foreach (var item in Model.seansModel)
                     {
-                        <option value="@item.seansId">@item.saat @item.tarih.ToString().Split(" ")[0]</option>
+                        <option value="@item.seansId">@item.sure</option>
                     }
                 </select>
                 <br />
 
-                @Html.Label("Seyirci Adı")
-                @Html.TextBox("seyirciAd","",new { @class = "form-control" })
-                @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
+                @Html.Label("Seans Tarihi")
+                <select name="seansId" class="form-control">
+                    @foreach (var item in Model.seansModel)
+                    {
+                        <option value="@item.seansId">@item.tarih</option>
+                    }
+                </select>
                 <br />
 
-                @Html.Label("Seyirci Soyadı")
-                @Html.TextBox("seyirciSoyad","",new { @class = "form-control" })
-                @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
-                <br />
-
-                @Html.Label("Seyirci Tc")
-                @Html.TextBox("seyirciAd","",new { @class = "form-control" })
-                @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
+                @Html.Label("Seans Saati")
+                <select name="seansId" class="form-control">
+                    @foreach (var item in Model.seansModel)
+                    {
+                        <option value="@item.seansId">@item.saat</option>
+                    }
+                </select>
                 <br />
 
                 @Html.Label("Kullanıcı Adı")
-                @Html.TextBox("kullaniciAd","",new { @class = "form-control" })
-                @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
+                <select name="kullaniciId" class="form-control">
+                    @foreach (var item in Model.kullaniciModel)
+                    {
+                        <option value="@item.kullaniciId">@item.kullaniciAd</option>
+                    }
+                </select>
                 <br />
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    <option value="False">Aktif</option>
+                    <option value="True">Pasif</option>
                 </select>
                 <br />
 

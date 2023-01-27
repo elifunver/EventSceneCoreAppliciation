@@ -11,7 +11,7 @@ namespace EventSceneCoreAppliciation.Controllers
     {
         BiletManager biletm = new BiletManager(new EfBiletRepository());
         SeansManager seansm = new SeansManager(new EfSeansRepository());
-        SeyirciManager seyircim = new SeyirciManager(new EfSeyirciRepository());
+        KullaniciManager kullanicim = new KullaniciManager(new EfKullaniciRepository());
         public IActionResult Index()
         {
             var biletler = biletm.biletListele();
@@ -20,9 +20,9 @@ namespace EventSceneCoreAppliciation.Controllers
         [HttpGet]
         public IActionResult Ekle()
         {
-            BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+            BiletSeansKullaniciModel model = new BiletSeansKullaniciModel();
             model.seansModel = seansm.seansListele();
-            model.seyirciModel = seyircim.seyirciListele();
+            model.kullaniciModel = kullanicim.kullaniciListele();
             model.biletModel = new Bilet();
             return View(model);
         }
@@ -44,9 +44,9 @@ namespace EventSceneCoreAppliciation.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+                BiletSeansKullaniciModel model = new BiletSeansKullaniciModel();
                 model.seansModel = seansm.seansListele();
-                model.seyirciModel = seyircim.seyirciListele();
+                model.kullaniciModel = kullanicim.kullaniciListele();
                 model.biletModel = bilet;
                 return View(model);
             }
@@ -62,9 +62,9 @@ namespace EventSceneCoreAppliciation.Controllers
         [HttpGet]
         public IActionResult Guncelle(int id)
         {
-            BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+            BiletSeansKullaniciModel model = new BiletSeansKullaniciModel();
             model.seansModel=seansm.seansListele();
-            model.seyirciModel=seyircim.seyirciListele();
+            model.kullaniciModel=kullanicim.kullaniciListele();
             model.biletModel = biletm.biletGetById(id);
             return View(model);
         }
@@ -82,9 +82,9 @@ namespace EventSceneCoreAppliciation.Controllers
             }
             else
             {
-                BiletSeansSeyirciModel model = new BiletSeansSeyirciModel();
+                BiletSeansKullaniciModel model = new BiletSeansKullaniciModel();
                 model.seansModel = seansm.seansListele();
-                model.seyirciModel = seyircim.seyirciListele();
+                model.kullaniciModel = kullanicim.kullaniciListele();
                 model.biletModel = bilet;
 
                 foreach (var item in result.Errors)

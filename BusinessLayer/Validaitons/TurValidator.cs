@@ -16,11 +16,6 @@ namespace BusinessLayer.Validaitons
             RuleFor(tur => tur.turAd).NotEmpty().WithMessage("Tür adı boş geçilemez!");
             RuleFor(tur => tur.turAd).MaximumLength(50).WithMessage("Maksimum 50 karakter girebilirsiniz.");
             RuleFor(tur => tur.turAd).MinimumLength(4).WithMessage("Minimum 4 karakter girebilirsiniz.");
-
-            //Rule For turıd
-            RuleFor(tur => tur.turId).NotEmpty().WithMessage("Tür ıd boş geçilemez!");
-
         }
-
     }
 }

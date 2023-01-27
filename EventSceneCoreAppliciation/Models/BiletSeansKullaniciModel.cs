@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace EventSceneCoreAppliciation.Models
 {
-    public class BiletSeansSeyirciModel
+    public class BiletSeansKullaniciModel
     {
         public Bilet biletModel { get; set; }
         public IEnumerable<Seans> seansModel { get; set; }
-        public IEnumerable<Seyirci> seyirciModel { get; set; }
+        public IEnumerable<Kullanici> kullaniciModel { get; set; }
     }
 }

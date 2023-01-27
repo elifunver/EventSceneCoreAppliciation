@@ -1,6 +1,5 @@
-﻿@using EntityLayer
-@using EventSceneCoreAppliciation.Models
-@model BiletSeansSeyirciModel
+﻿@using EventSceneCoreAppliciation.Models
+@model BiletSeansKullaniciModel
 
 @{
     ViewData["Title"] = "Guncelle";
@@ -14,68 +13,130 @@
 
             @using (Html.BeginForm("Guncelle", "Bilet", FormMethod.Post, new { @class = "form-group" }))
             {
-                @Html.TextBox("biletId",Model.biletModel.biletId,new { @class = "form-control",@type="hidden" })
+                @Html.TextBox("biletId",Model.biletModel.biletId,new { @class = "form-control" ,@type="hidden"})
 
-                @Html.Label("Seri No")
-                @Html.TextBox("seriNo",Model.biletModel.seriNo,new { @class = "form-control" })
-                @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
+                <div class="form-group">
+                    @Html.Label("Seyirci Adı")
+                    @Html.TextBox("seyirciAd",Model.biletModel.seyirciAd,new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciAd",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seyirci Soyadı")
+                    @Html.TextBox("seyirciSoyad",Model.biletModel.seyirciSoyad,new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciSoyad",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seyirci Tc No")
+                    @Html.TextBox("seyirciTc",Model.biletModel.seyirciTc,new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciTc",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seyirci Türü")
+                    @Html.TextBox("seyirciTur",Model.biletModel.seyirciTur,new { @class = "form-control" })
+                    @Html.ValidationMessage("seyirciTur",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Bilet Fiyatı")
+                    @Html.TextBox("fiyat",Model.biletModel.fiyat,new { @class = "form-control" })
+                    @Html.ValidationMessage("fiyat",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Seri No")
+                    @Html.TextBox("seriNo",Model.biletModel.seriNo,new { @class = "form-control" })
+                    @Html.ValidationMessage("seriNo",new { @class ="text-danger" })
+                </div>
                 <br />
 
                 @Html.Label("Ödeme Tipi")
-                <select class="form-control" name="odemeTipi">
-                    <option selected>True</option>
-                    <option>False</option>
-                </select>
-                <br />
-
-                @Html.Label("Bilet Kesim Tarihi")
-                @Html.TextBox("biletKesimTarihi",Model.biletModel.biletKesimTarihi,new { @class = "form-control" })
-                @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
-                <br />
-
-                @Html.Label("Seyirci Adı")
-                <select class="form-control" name="seyirciId">
-                    @foreach (var item in Model.seyirciModel)
-                    {
-                        if (item.seyirciId == Model.biletModel.seyirciId)
+                <select name="odemeTipi" class="form-control">
+                        @if (Model.biletModel.odemeTipi)
                         {
-                            <option value="@item.seyirciId" selected>@item.seyirciAd</option>
+                        <option value="@Model.biletModel.odemeTipi" selected>@Model.biletModel.odemeTipi</option>
                         }
                         else
                         {
-                            <option value="@item.seyirciId">@item.seyirciAd</option>
+                        <option value="@Model.biletModel.odemeTipi">@Model.biletModel.odemeTipi</option>
                         }
                     }
                 </select>
                 <br />
 
-                @Html.Label("Seyirci Soyadı")
-                <select class="form-control" name="seyirciId">
-                    @foreach (var item in Model.seyirciModel)
+                <div class="form-group">
+                    @Html.Label("Bilet Kesim Tarihi")
+                    @Html.TextBox("biletKesimTarihi",Model.biletModel.biletKesimTarihi,new { @class = "form-control" })
+                    @Html.ValidationMessage("biletKesimTarihi",new { @class ="text-danger" })
+                </div>
+                <br />
+
+                @Html.Label("Seans Süresi")
+                <select name="seansId" class="form-control">
+                    @foreach (var item in Model.seansModel)
                     {
-                        if (item.seyirciId == Model.biletModel.seyirciId)
+                        @if (Model.biletModel.seansId == item.seansId)
                         {
-                            <option value="@item.seyirciId" selected>@item.seyirciSoyad</option>
+                            <option value="@item.seansId" selected>@item.sure</option>
                         }
                         else
                         {
-                            <option value="@item.seyirciId">@item.seyirciSoyad</option>
+                            <option value="@item.seansId">@item.sure</option>
                         }
                     }
                 </select>
                 <br />
 
-                @Html.Label("Seyirci Tc")
-                <select class="form-control" name="seyirciId">
-                    @foreach (var item in Model.seyirciModel)
+                @Html.Label("Seans Tarihi")
+                <select name="seansId" class="form-control">
+                    @foreach (var item in Model.seansModel)
                     {
-                        if (item.seyirciId == Model.biletModel.seyirciId)
+                        @if (Model.biletModel.seansId == item.seansId)
                         {
-                            <option value="@item.seyirciId" selected>@item.seyirciTc</option>
+                            <option value="@item.seansId" selected>@item.tarih</option>
                         }
                         else
                         {
-                            <option value="@item.seyirciId">@item.seyirciTc</option>
+                            <option value="@item.seansId">@item.tarih</option>
+                        }
+                    }
+                </select>
+                <br />
+
+                @Html.Label("Seans Saati")
+                <select name="seansId" class="form-control">
+                    @foreach (var item in Model.seansModel)
+                    {
+                        @if (Model.biletModel.seansId == item.seansId)
+                        {
+                            <option value="@item.seansId" selected>@item.saat</option>
+                        }
+                        else
+                        {
+                            <option value="@item.seansId">@item.saat</option>
+                        }
+                    }
+                </select>
+                <br />
+
+                @Html.Label("Kullanıcı Adı")
+                <select name="kullaniciId" class="form-control">
+                    @foreach (var item in Model.kullaniciModel)
+                    {
+                        @if (Model.biletModel.kullaniciId == item.kullaniciId)
+                        {
+                            <option value="@item.kullaniciId" selected>@item.kullaniciAd</option>
+                        }
+                        else
+                        {
+                            <option value="@item.kullaniciId">@item.kullaniciAd</option>
                         }
                     }
                 </select>
@@ -83,8 +144,16 @@
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    @if (Model.biletModel.silindi)
+                    {
+                        <option value="False">Aktif</option>
+                        <option value="True" selected>Pasif</option>
+                    }
+                    else
+                    {
+                        <option value="False" selected>Aktif</option>
+                        <option value="True">Pasif</option>
+                    }
                 </select>
                 <br />
 

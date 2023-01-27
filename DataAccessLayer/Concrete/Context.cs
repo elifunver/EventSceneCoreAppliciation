@@ -18,7 +18,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Etkinlik> etkinlikler { get; set; }
         public DbSet<Tur> turler { get; set; }
         public DbSet<Salon> salonlar { get; set; }
-        public DbSet<Seyirci> seyirciler { get; set; }
+        public DbSet<Kullanici> kullanicilar { get; set; }
         public DbSet<Seans> seanslar  { get; set; }
         public DbSet<Bilet> biletler { get; set; }
         public DbSet<Admin> adminler { get; set; }

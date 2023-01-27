@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISeyirciDal : IGenericDal<Seyirci>
+    public interface IKullaniciDal : IGenericDal<Kullanici>
     {
     }
 }

@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EventSceneCoreAppliciation.Controllers
 {
-    public class SeyirciController : Controller
+    public class KullaniciController : Controller
     {
-        SeyirciManager seyircim = new SeyirciManager(new EfSeyirciRepository());
+        KullaniciManager kullanicim = new KullaniciManager(new EfKullaniciRepository());
 
         public IActionResult Index()
         {
-            var seyirciler = seyircim.seyirciListele();
-            return View(seyirciler);
+            var kullaniciler = kullanicim.kullaniciListele();
+            return View(kullaniciler);
         }
 
         [HttpGet]
@@ -23,14 +23,14 @@ namespace EventSceneCoreAppliciation.Controllers
         }
 
         [HttpPost]
-        public IActionResult Ekle(Seyirci seyirci)
+        public IActionResult Ekle(Kullanici kullanici)
         {
-            SeyirciValidator seyirciValidator = new SeyirciValidator();
-            var result = seyirciValidator.Validate(seyirci);
+            KullaniciValidator kullaniciValidator = new KullaniciValidator();
+            var result = kullaniciValidator.Validate(kullanici);
 
             if (result.IsValid)
             {
-                seyircim.seyirciEkle(seyirci);
+                kullanicim.kullaniciEkle(kullanici);
                 return RedirectToAction("Index");
             }
 
@@ -46,28 +46,28 @@ namespace EventSceneCoreAppliciation.Controllers
 
         public IActionResult sil(int id)
         {
-            Seyirci seyirci = seyircim.seyirciGetById(id);
-            seyirci.silindi = true;
-            seyircim.seyirciGuncelle(seyirci);
+            Kullanici kullanici = kullanicim.kullaniciGetById(id);
+            kullanici.silindi = true;
+            kullanicim.kullaniciGuncelle(kullanici);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult guncelle(int id)
         {
-            Seyirci seyirci = seyircim.seyirciGetById(id);
-            return View(seyirci);
+            Kullanici kullanici = kullanicim.kullaniciGetById(id);
+            return View(kullanici);
         }
 
         [HttpPost]
-        public IActionResult guncelle(Seyirci seyirci)
+        public IActionResult guncelle(Kullanici kullanici)
         {
-            SeyirciValidator seyirciValidator = new SeyirciValidator();
-            var result = seyirciValidator.Validate(seyirci);
+            KullaniciValidator kullaniciValidator = new KullaniciValidator();
+            var result = kullaniciValidator.Validate(kullanici);
 
             if (result.IsValid)
             {
-                seyircim.seyirciGuncelle(seyirci);
+                kullanicim.kullaniciGuncelle(kullanici);
                 return RedirectToAction("Index");
             }
 
@@ -77,7 +77,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(seyirci);
+                return View(kullanici);
             }
         }
     }

@@ -9,19 +9,24 @@
     <div class="card m-5 overflow-auto" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
 
-            <h2>Biletler</h2>
-
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Seyirci Adı</th>
+                        <th>Seyirci Soyadı</th>
+                        <th>Seyirci Tc No</th>
+                        <th>Seyirci Türü</th>
+                        <th>Bilet Fiyatı</th>
                         <th>Seri No</th>
                         <th>Ödeme Tipi</th>
                         <th>Bilet Kesim Tarihi</th>
-                        <th>Seyirci Ad</th>
-                        <th>Seyirci Soyad</th>
-                        <th>Seyirci Tc</th>
-                        <th>Seans Saat</th>
-                        <th>Kullanıcı Ad</th>
+
+                        <th>Seans Süresi</th>
+                        <th>Seans Tarihi</th>
+                        <th>Seans Saati</th>
+
+                        <th>Kullanıcı Adı</th>
+
                         <th>Durum</th>
                     </tr>
                 </thead>
@@ -30,44 +35,60 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@item.seyirciAd</td>
+                            <td>@item.seyirciSoyad</td>
+                            <td>@item.seyirciTc</td>
+                            <td>@item.seyirciTur</td>
+                            <td>@item.fiyat</td>
                             <td>@item.seriNo</td>
                             <td>@item.odemeTipi</td>
                             <td>@item.biletKesimTarihi</td>
-                            <td>@item.seyirci.seyirciAd</td>
-                            <td>@item.seyirci.seyirciSoyad</td>
-                            <td>@item.seyirci.seyirciTc</td>
-                            <td>@item.seans.saat - @item.seans.tarih </td>
-                            <td>@item.seyirci.kullaniciAd</td>
-                            <td>@item.silindi</td>
+
+                            <td>@item.seans.sure</td>
+                            <td>@item.seans.tarih</td>
+                            <td>@item.seans.saat</td>
+
+                            <td>@item.kullanici.kullaniciAd</td>
+
+                            @if (@item.silindi)
+                            {
+                                <td>Pasif</td>
+                            }
+                            else
+                            {
+                                <td>Aktif</td>
+                            }
                             <td>
                                 <button type="button" class="btn btn-info" data-whatever="@item.biletId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
-                            <td><a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></td>
+                            <td>
+                                <a href="/Bilet/guncelle/@item.biletId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a>
+                            </td>
                         </tr>
                     }
                 </tbody>
-
             </table>
+
             <div class="text-center d-flex justify-content-start p-2">
                 <a href="/Bilet/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title" id="silLabel">Uyarı</h1>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Silmek istediğinizden emin misiniz?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
-                    <a id="delete-btn" href="" class="btn btn-success">Evet</a>
-                </div>
+<div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="silLabel">Uyarı</h1>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Silmek istediğinizden emin misiniz?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
+                <a id="delete-btn" href="" class="btn btn-success">Evet</a>
             </div>
         </div>
     </div>
@@ -78,10 +99,10 @@
     $(document).ready(function () {
         $('#decisionPopup').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
-            var biletId = button.attr('data-bs-whatever');
+            var biletId = button.attr('data-whatever');
             console.log(biletId);
             var a = document.querySelector("#delete-btn");
-            a.href = "/Bilet/sil/" + biletId;
+            a.href = "/Bilet/sil/" + biletId
         });
     });
 </script>

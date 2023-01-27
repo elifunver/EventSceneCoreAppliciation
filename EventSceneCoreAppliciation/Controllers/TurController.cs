@@ -2,7 +2,12 @@
 using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
+using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
+using PagedList.Core;
+using System.Drawing.Printing;
+using EventSceneCoreAppliciation.PagedList;
+using DataAccessLayer.Concrete;
 
 namespace EventSceneCoreAppliciation.Controllers
 {
@@ -14,6 +19,7 @@ namespace EventSceneCoreAppliciation.Controllers
         {
             var turlar = turm.turListele();
             return View(turlar);
+
         }
 
         [HttpGet]
@@ -33,6 +39,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 turm.turEkle(tur);
                 return RedirectToAction("Index");
             }
+
             else
             {
                 foreach (var item in result.Errors)
@@ -51,7 +58,6 @@ namespace EventSceneCoreAppliciation.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
         public IActionResult guncelle(int id)
         {
             Tur tur = turm.turGetById(id);
@@ -69,6 +75,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 turm.turGuncelle(tur);
                 return RedirectToAction("Index");
             }
+
             else
             {
                 foreach (var item in result.Errors)
