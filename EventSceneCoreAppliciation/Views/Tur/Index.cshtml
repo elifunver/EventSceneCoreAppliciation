@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="col-11 grid-margin stretch-card">
-    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+    <div class="card m-5 overflow-auto" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
 
             <table class="table">
@@ -22,7 +22,14 @@
                     {
                         <tr>
                             <td>@item.turAd</td>
-                            <td>@item.silindi</td>
+                            @if (@item.silindi)
+                            {
+                                <td>Pasif</td>
+                            }
+                            else
+                            {
+                                <td>Aktif</td>
+                            }
                             <td>
                                 <button type="button" class="btn btn-info" data-bs-whatever="@item.turId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
