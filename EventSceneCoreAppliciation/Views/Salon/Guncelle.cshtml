@@ -13,22 +13,30 @@
 
             @using (Html.BeginForm("Guncelle", "Salon", FormMethod.Post, new { @class = "form-group" }))
             {
-                @Html.TextBox("salonId","",new { @class = "form-control", @name="salonId", @value="@Model.salonId", @type="hidden" })
+                @Html.TextBox("salonId",Model.salonId,new { @class = "form-control", @type="hidden" })
 
                 @Html.Label("Salon Adı")
-                @Html.TextBox("salonAd","",new { @class = "form-control", @name="salonAd", @value="@Model.salonAd" })
-                @Html.ValidationMessage("salonAd","",new { @class ="text-danger" })
+                @Html.TextBox("salonAd", Model.salonAd,new { @class = "form-control" })
+                @Html.ValidationMessage("salonAd",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Salon Kapasitesi")
-                @Html.TextBox("salonKapasite","",new { @class = "form-control", @name="salonKapasite", @value="@Model.salonKapasite"})
-                @Html.ValidationMessage("salonKapasite","",new { @class ="text-danger" })
+                @Html.TextBox("kapasite", Model.kapasite,new { @class = "form-control"})
+                @Html.ValidationMessage("kapasite",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    @if (Model.silindi)
+                    {
+                        <option value="False">Aktif</option>
+                        <option value="True" selected>Pasif</option>
+                    }
+                    else
+                    {
+                        <option value="False" selected>Aktif</option>
+                        <option value="True">Pasif</option>
+                    }
                 </select>
                 <br />
 

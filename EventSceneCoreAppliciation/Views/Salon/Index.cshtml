@@ -23,9 +23,16 @@
                         <tr>
                             <td>@item.salonAd</td>
                             <td>@item.kapasite</td>
-                            <td>@item.silindi</td>
+                            @if (@item.silindi)
+                            {
+                                <td>Pasif</td>
+                            }
+                            else
+                            {
+                                <td>Aktif</td>
+                            }
                             <td>
-                                <button type="button" class="btn btn-info" data-bs-whatever="@item.salonId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                                <button type="button" class="btn btn-info" data-whatever="@item.salonId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
                             <td><a href="/Salon/guncelle/@item.salonId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
                         </tr>
@@ -45,13 +52,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="silLabel">Uyarı</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Silmek istediğinizden emin misiniz?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
                 <a id="delete-btn" href="" class="btn btn-success">Evet</a>
             </div>
         </div>
@@ -63,7 +70,7 @@
     $(document).ready(function () {
         $('#decisionPopup').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
-            var salonId = button.attr('data-bs-whatever');
+            var salonId = button.attr('data-whatever');
             console.log(salonId);
             var a = document.querySelector("#delete-btn");
             a.href = "/Salon/sil/" + salonId
