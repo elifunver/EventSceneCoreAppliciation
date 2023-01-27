@@ -9,6 +9,8 @@
   <ItemGroup>
     <Content Remove="C:\Users\elif.unver\.nuget\packages\ntoastnotify\8.0.0\contentFiles\any\net6.0\wwwroot\noty.js" />
     <Content Remove="C:\Users\elif.unver\.nuget\packages\ntoastnotify\8.0.0\contentFiles\any\net6.0\wwwroot\toastr.js" />
+    <Content Remove="C:\Users\ELİF ÜNVER\.nuget\packages\ntoastnotify\8.0.0\contentFiles\any\net6.0\wwwroot\noty.js" />
+    <Content Remove="C:\Users\ELİF ÜNVER\.nuget\packages\ntoastnotify\8.0.0\contentFiles\any\net6.0\wwwroot\toastr.js" />
   </ItemGroup>
 
   <ItemGroup>

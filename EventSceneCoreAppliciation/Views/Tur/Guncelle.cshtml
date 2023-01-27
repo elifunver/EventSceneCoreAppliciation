@@ -13,8 +13,8 @@
             @using (Html.BeginForm("Guncelle", "Tur", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.TextBox("turId",Model.turId,new { @class = "form-control" ,@type="hidden"})
-                @Html.Label("Tür Adı")
 
+                @Html.Label("Tür Adı")
                 @Html.TextBox("turAd",Model.turAd,new { @class = "form-control"})
                 @Html.ValidationMessage("turAd",new { @class ="text-danger" })
                 <br />
@@ -34,7 +34,7 @@
                 </select>
                 <br />
 
-                <input class="form-control btn btn-primary" type="submit" value="Etkinlik Güncelle" />
+                <input class="form-control btn btn-primary" type="submit" value="Tür Güncelle" />
             }
         </div>
     </div>
