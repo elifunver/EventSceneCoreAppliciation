@@ -12,7 +12,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Tür Ad</th>                 
+                        <th>Tür Adı</th>
                         <th>Durum</th>
                     </tr>
                 </thead>
@@ -22,35 +22,44 @@
                     {
                         <tr>
                             <td>@item.turAd</td>
-                            <td>@item.silindi</td>
+                            @if (@item.silindi)
+                            {
+                                <td>Pasif</td>
+                            }
+                            else
+                            {
+                                <td>Aktif</td>
+                            }
                             <td>
-                                <button type="button" class="btn btn-info" data-bs-whatever="@item.turId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                                <button type="button" class="btn btn-info" data-whatever="@item.turId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
-                            <td><a href="/Tur/guncelle/@item.turId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
+                            <td>
+                                <a href="/tur/guncelle/@item.turId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a>
+                            </td>
                         </tr>
                     }
                 </tbody>
             </table>
+
             <div class="text-center d-flex justify-content-start p-2">
-                <a href="/Tur/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
+                <a href="/tur/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="modal fade" id="decisionPopup" tabindex="=-1" aria-labelledby="silLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="silLabel">Uyarı</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Silmek istediğinizden emin misiniz?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
                 <a id="delete-btn" href="" class="btn btn-success">Evet</a>
             </div>
         </div>
@@ -62,7 +71,7 @@
     $(document).ready(function () {
         $('#decisionPopup').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
-            var turId = button.attr('data-bs-whatever');
+            var turId = button.attr('data-whatever');
             console.log(turId);
             var a = document.querySelector("#delete-btn");
             a.href = "/Tur/sil/" + turId
