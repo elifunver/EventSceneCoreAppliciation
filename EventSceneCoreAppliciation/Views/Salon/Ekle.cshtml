@@ -13,20 +13,24 @@
 
             @using (Html.BeginForm("Ekle", "Salon", FormMethod.Post, new { @class = "form-group" }))
             {
+                <div class="form-group">
                 @Html.Label("Salon Adı")
                 @Html.TextBox("salonAd","",new { @class = "form-control" })
                 @Html.ValidationMessage("salonAd","",new { @class ="text-danger" })
+                </div>
                 <br />
 
+                <div class="form-group">
                 @Html.Label("Salon Kapasitesi")
                 @Html.TextBox("kapasite","",new { @class = "form-control" })
                 @Html.ValidationMessage("kapasite","",new { @class ="text-danger" })
+                </div>
                 <br />
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    <option value="False">Aktif</option>
+                    <option value="True">Pasif</option>
                 </select>
                 <br />
 
