@@ -12,8 +12,6 @@ namespace BusinessLayer.Validaitons
     {
         public SeansValidator()
         {
-            RuleFor(seans => seans.seansId).NotEmpty().WithMessage("Seans Id boş geçilemez!");
-
             RuleFor(seans => seans.sure).NotEmpty().WithMessage("Seans süresi boş geçilemez!");
 
             RuleFor(seans => seans.saat).NotEmpty().WithMessage("Seans saati boş geçilemez !");
