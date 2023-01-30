@@ -19,8 +19,6 @@ namespace BusinessLayer.Validaitons
             RuleFor(etkinlik => etkinlik.aciklama).NotEmpty().WithMessage("Etkinlik açıklması boş geçilemez!");
             RuleFor(etkinlik => etkinlik.aciklama).MaximumLength(6000).WithMessage("Maximum 6000 karakter girilmelidir.");
             RuleFor(etkinlik => etkinlik.aciklama).MinimumLength(3).WithMessage("Minimum 3 karakter girilmelidir.");
-
-            RuleFor(etkinlik => etkinlik.etkinlikAfis).NotEmpty().WithMessage("Etkinlik afişi boş geçilemez!");
         }
     }
 }

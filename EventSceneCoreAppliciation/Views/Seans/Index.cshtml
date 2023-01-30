@@ -12,9 +12,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Seans Süre</th>
-                        <th>Seans Tarih</th>
-                        <th>Seans Saat</th>
+                        <th>Seans Süresi</th>
+                        <th>Seans Tarihi</th>
+                        <th>Seans Saati</th>
+
+                        <th>Etkinlik Adı</th>
+                        <th>Açıklama</th>
+                        <th>Etkinlik Afişi</th>
+
+                        <th>Salon Adı</th>
+                        <th>Salon Kapasitesi</th>
+
                         <th>Durum</th>
                     </tr>
                 </thead>
@@ -26,16 +34,33 @@
                             <td>@item.sure</td>
                             <td>@item.tarih</td>
                             <td>@item.saat</td>
-                            <td>@item.silindi</td>
+
+                            <td>@item.etkinlik.etkinlikAd</td>
+                            <td>@item.etkinlik.aciklama</td>
+                            <td>@item.etkinlik.etkinlikAfis</td>
+
+                            <td>@item.salon.salonAd</td>
+                            <td>@item.salon.kapasite</td>
+
+                            @if (@item.silindi)
+                            {
+                                <td>Pasif</td>
+                            }
+                            else
+                            {
+                                <td>Aktif</td>
+                            }
                             <td>
-                                <button type="button" class="btn btn-info" data-bs-whatever="@item.seansId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                                <button type="button" class="btn btn-info" data-whatever="@item.seansId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
-                            <td><a href="/Seans/guncelle/@item.seansId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
+                            <td>
+                                <a href="/Seans/guncelle/@item.seansId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a>
+                            </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
+
             <div class="text-center d-flex justify-content-start p-2">
                 <a href="/Seans/ekle" class="btn btn-warning"><ion-icon name="bag-add-outline" style="font-size:20px;"></ion-icon></a>
             </div>
@@ -48,13 +73,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="silLabel">Uyarı</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Silmek istediğinizden emin misiniz?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
                 <a id="delete-btn" href="" class="btn btn-success">Evet</a>
             </div>
         </div>
@@ -66,8 +91,8 @@
     $(document).ready(function () {
         $('#decisionPopup').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
-            var seansId = button.attr('data-bs-whatever');
-            console.log(seansId);
+            var seansId = button.attr('data-whatever');
+            console.log(seansId
             var a = document.querySelector("#delete-btn");
             a.href = "/Seans/sil/" + seansId
         });

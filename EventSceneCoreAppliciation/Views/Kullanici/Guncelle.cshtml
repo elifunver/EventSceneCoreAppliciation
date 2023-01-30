@@ -8,53 +8,40 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
-
             <h3>Kullanıcı Güncelle</h3>
 
-            @using (Html.BeginForm("Guncelle", "Kullanıcı", FormMethod.Post, new { @class = "form-group" }))
+            @using (Html.BeginForm("Guncelle", "Kullanici", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.TextBox("kullaniciId",Model.kullaniciId,new { @class = "form-control" ,@type="hidden"})
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Adı")
-                    @Html.TextBox("kullaniciAd",Model.kullaniciAd,new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Adı")
+                @Html.TextBox("kullaniciAd",Model.kullaniciAd,new { @class = "form-control"})
+                @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Şifresi")
-                    @Html.TextBox("kullaniciSifre",Model.kullaniciSifre,new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciSifre",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Şifresi")
+                @Html.TextBox("kullaniciSifre",Model.kullaniciSifre,new { @class = "form-control"})
+                @Html.ValidationMessage("kullaniciSifre",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Tc No")
-                    @Html.TextBox("kullaniciTc",Model.kullaniciTc,new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciTc",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Tc No")
+                @Html.TextBox("kullaniciTc",Model.kullaniciTc,new { @class = "form-control"})
+                @Html.ValidationMessage("kullaniciTc",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Tel No")
-                    @Html.TextBox("kullaniciTel",Model.kullaniciTel,new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciTel",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Tel No")
+                @Html.TextBox("kullaniciTel",Model.kullaniciTel,new { @class = "form-control"})
+                @Html.ValidationMessage("kullaniciTel",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Maili")
-                    @Html.TextBox("kullaniciMail",Model.kullaniciMail,new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciMail",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Maili")
+                @Html.TextBox("kullaniciMail",Model.kullaniciMail,new { @class = "form-control"})
+                @Html.ValidationMessage("kullaniciMail",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Doğum Tarihi")
-                    @Html.TextBox("dogumTarihi",Model.dogumTarihi,new { @class = "form-control" })
-                    @Html.ValidationMessage("dogumTarihi",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Doğum Tarihi")
+                @Html.TextBox("dogumTarihi",Model.dogumTarihi,new { @class = "form-control"})
+                @Html.ValidationMessage("dogumTarihi",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Durum")
