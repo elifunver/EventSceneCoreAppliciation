@@ -53,4 +53,12 @@ app.MapControllerRoute(
 app.MapControllerRoute(
                 name: "Tur", pattern: "Tur/tur-list", defaults: new { controller = "Tur", action = "Index" }
                 );
+
+app.MapControllerRoute(
+                name: "Slider", pattern: "Slider/slider-list", defaults: new { controller = "Slider", action = "Index" }
+                );
+
+app.MapControllerRoute(
+                name: "Menu", pattern: "Menu/menu-list", defaults: new { controller = "Menu", action = "Index" }
+                );
 app.Run();

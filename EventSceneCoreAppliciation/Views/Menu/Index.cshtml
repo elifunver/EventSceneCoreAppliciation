@@ -11,13 +11,14 @@
             @section searchbar
                 {
                 <form class="d-none d-sm-inline-block form-inline mr-auto md-3 my-md-0 mw-100 navbar-search">
-                    <div class="input-group ms-3">
-                        <input type="text" class="form-control border-0 small" placeholder="Bilet Ara"
-                           aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-light" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
+                    <div class="nav-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="search">
+                                    <i class="typcn typcn-zoom"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -51,11 +52,18 @@
                                 <td>@item.parent.name</td>
                             }
                             <td>@item.seoUrl</td>
-                            <td>@item.silindi</td>
+                            @if (@item.silindi)
+                            {
+                                <td>Pasif</td>
+                            }
+                            else
+                            {
+                                <td>Aktif</td>
+                            }
                             <td>
-                                <button type="button" class="btn btn-info" data-bs-whatever="@item.menuId" data-bs-toggle="modal" data-bs-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
+                                <button type="button" class="btn btn-info" data-whatever="@item.menuId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
-                            <td><a href="/Menu/guncelle/@item.menuId" type="button" class="btn btn-outline-primary p-2">Güncelle</a></td>
+                            <td><a href="/Menu/guncelle/@item.menuId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
                         </tr>
                     }
                 </tbody>
@@ -66,13 +74,13 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title" id="silLabel">Uyarı</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             Silmek istediğinizden emin misiniz?
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hayır</button>
                             <a id="delete-btn" href="" class="btn btn-success">Evet</a>
                         </div>
                     </div>
@@ -87,7 +95,7 @@
                 $(document).ready(function () {
                     $('#decisionPopup').on('show.bs.modal', function (event) {
                         var button = $(event.relatedTarget);
-                        var menuId = button.attr('data-bs-whatever');
+                        var menuId = button.attr('data-whatever');
                         var a = document.querySelector("#delete-btn");
                         a.href = "/Menu/sil/" + menuId;
                     });
