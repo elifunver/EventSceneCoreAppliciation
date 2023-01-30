@@ -2,7 +2,12 @@
 using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
+using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
+using PagedList.Core;
+using System.Drawing.Printing;
+using EventSceneCoreAppliciation.PagedList;
+using DataAccessLayer.Concrete;
 
 namespace EventSceneCoreAppliciation.Controllers
 {
@@ -12,8 +17,8 @@ namespace EventSceneCoreAppliciation.Controllers
 
         public IActionResult Index()
         {
-            var kullaniciler = kullanicim.kullaniciListele();
-            return View(kullaniciler);
+            var kullanicilar = kullanicim.kullaniciListele();
+            return View(kullanicilar);
         }
 
         [HttpGet]
@@ -33,7 +38,6 @@ namespace EventSceneCoreAppliciation.Controllers
                 kullanicim.kullaniciEkle(kullanici);
                 return RedirectToAction("Index");
             }
-
             else
             {
                 foreach (var item in result.Errors)
@@ -52,7 +56,6 @@ namespace EventSceneCoreAppliciation.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
         public IActionResult guncelle(int id)
         {
             Kullanici kullanici = kullanicim.kullaniciGetById(id);
@@ -70,14 +73,13 @@ namespace EventSceneCoreAppliciation.Controllers
                 kullanicim.kullaniciGuncelle(kullanici);
                 return RedirectToAction("Index");
             }
-
             else
             {
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(kullanici);
+                return View();
             }
         }
     }

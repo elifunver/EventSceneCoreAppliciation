@@ -4,6 +4,10 @@ using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
 using EventSceneCoreAppliciation.Models;
 using Microsoft.AspNetCore.Mvc;
+using PagedList.Core;
+using System.Drawing.Printing;
+using EventSceneCoreAppliciation.PagedList;
+using DataAccessLayer.Concrete;
 
 namespace EventSceneCoreAppliciation.Controllers
 {
@@ -15,6 +19,7 @@ namespace EventSceneCoreAppliciation.Controllers
         {
             var salonlar = salonm.salonListele();
             return View(salonlar);
+
         }
 
         [HttpGet]
@@ -34,7 +39,6 @@ namespace EventSceneCoreAppliciation.Controllers
                 salonm.salonEkle(salon);
                 return RedirectToAction("Index");
             }
-
             else
             {
                 foreach (var item in result.Errors)
