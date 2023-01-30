@@ -25,6 +25,15 @@ namespace EventSceneCoreAppliciation.Controllers
             sm.sliderEkle(slider);
             return RedirectToAction("Index");
         }
+
+        public IActionResult sil(int id)
+        {
+            Slider slider = sm.sliderGetById(id);
+            slider.silindi = true;
+            sm.sliderGuncelle(slider);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public IActionResult guncelle(int id)
         {

@@ -1,8 +1,47 @@
-﻿
+﻿@using EntityLayer
+@model Slider
+
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="col-11 grid-margin stretch-card">
+    <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
+        <div class="card-body">
 
-<h1>Guncelle</h1>
+            <h3>Slider Güncelle</h3>
 
+            @using (Html.BeginForm("Guncelle", "Slider", FormMethod.Post, new { @class = "form-group" }))
+            {
+                @Html.TextBox("sliderId",Model.sliderId,new { @class = "form-control" ,@type="hidden"})
+
+                @Html.Label("Slider Adı")
+                @Html.TextBox("sliderName",Model.sliderName,new { @class = "form-control"})
+                @Html.ValidationMessage("sliderName",new { @class ="text-danger" })
+                <br />
+
+                @Html.Label("Slider Resim Url")
+                @Html.TextBox("resimUrl",Model.resimUrl,new { @class = "form-control"})
+                @Html.ValidationMessage("resimUrl",new { @class ="text-danger" })
+                <br />
+
+                @Html.Label("Durum")
+                <select class="form-control" name="silindi">
+                    @if (Model.silindi)
+                    {
+                        <option value="False">Aktif</option>
+                        <option value="True" selected>Pasif</option>
+                    }
+                    else
+                    {
+                        <option value="False" selected>Aktif</option>
+                        <option value="True">Pasif</option>
+                    }
+                </select>
+                <br />
+
+                <input class="form-control btn btn-primary" type="submit" value="Slider Güncelle" />
+            }
+        </div>
+    </div>
+</div>
