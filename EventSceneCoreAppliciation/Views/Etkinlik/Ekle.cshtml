@@ -13,24 +13,18 @@
 
             @using (Html.BeginForm("Ekle", "Etkinlik", FormMethod.Post, new { @class = "form-group" }))
             {
-                <div class="form-group">
-                    @Html.Label("Etkinlik Adı")
-                    @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
-                    @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Etkinlik Adı")
+                @Html.TextBox("etkinlikAd","",new { @class = "form-control" })
+                @Html.ValidationMessage("etkinlikAd",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Etkinlik Açıklama")
-                    @Html.TextBox("aciklama","",new { @class = "form-control" })
-                    @Html.ValidationMessage("aciklama",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Etkinlik Açıklama")
+                @Html.TextBox("aciklama","",new { @class = "form-control" })
+                @Html.ValidationMessage("aciklama",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Etkinlik Afiş")
-                    @Html.TextBox("etkinlikAfis","",new { @class = "form-control",@type="file" })
-                </div>
+                @Html.Label("Etkinlik Afiş")
+                @Html.TextBox("etkinlikAfis","",new { @class = "form-control",@type="file" })
                 <br />
 
                 @Html.Label("Tür")

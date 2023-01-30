@@ -1,4 +1,4 @@
-﻿@using EntityLayer
+﻿@using EventSceneCoreAppliciation.Models
 @model SeansEtkinlikSalonModel
 
 @{
@@ -8,23 +8,52 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
+
             <h3>Seans Ekle</h3>
 
             @using (Html.BeginForm("Ekle", "Seans", FormMethod.Post, new { @class = "form-group" }))
             {
-                @Html.Label("Seans Süre")
+
+                @Html.Label("Seans Süresi")
                 @Html.TextBox("sure","",new { @class = "form-control" })
-                @Html.ValidationMessage("sure","",new { @class ="text-danger" })
+                @Html.ValidationMessage("sure",new { @class ="text-danger" })
                 <br />
 
-                @Html.Label("Seans Tarih")
+                @Html.Label("Seans Tarihi")
                 @Html.TextBox("tarih","",new { @class = "form-control" })
-                @Html.ValidationMessage("tarih","",new { @class ="text-danger" })
+                @Html.ValidationMessage("tarih",new { @class ="text-danger" })
                 <br />
 
-                @Html.Label("Seans Saat")
+                @Html.Label("Seans Saati")
                 @Html.TextBox("saat","",new { @class = "form-control" })
-                @Html.ValidationMessage("saat","",new { @class ="text-danger" })
+                @Html.ValidationMessage("saat",new { @class ="text-danger" })
+                <br />
+
+                @Html.Label("Etkinlik Adı")
+                <select name="etkinlikId" class="form-control">
+                    @foreach (var item in Model.etkinlikModel)
+                    {
+                        <option value="@item.etkinlikId">@item.etkinlikAd</option>
+                    }
+                </select>
+                <br />
+
+                @Html.Label("Açıklama")
+                <select name="etkinlikId" class="form-control">
+                    @foreach (var item in Model.etkinlikModel)
+                    {
+                        <option value="@item.etkinlikId">@item.aciklama</option>
+                    }
+                </select>
+                <br />
+
+                @Html.Label("Etkinlik Afişi")
+                <select name="etkinlikId" class="form-control">
+                    @foreach (var item in Model.etkinlikModel)
+                    {
+                        <option value="@item.etkinlikId">@item.etkinlikAfis</option>
+                    }
+                </select>
                 <br />
 
                 @Html.Label("Salon Adı")
@@ -34,18 +63,21 @@
                         <option value="@item.salonId">@item.salonAd</option>
                     }
                 </select>
-                @Html.Label("Etkinlik Adı")
-                <select name="etkinlikId" class="form-control">
-                    @foreach (var item in Model.etkinlikModel)
+                <br />
+
+                @Html.Label("Salon Kapasitesi")
+                <select name="salonId" class="form-control">
+                    @foreach (var item in Model.salonModel)
                     {
-                        <option value="@item.etkinlikId">@item.etkinlikAd</option>
+                        <option value="@item.salonId">@item.kapasite</option>
                     }
                 </select>
+                <br />
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    <option value="False">Aktif</option>
+                    <option value="True">Pasif</option>
                 </select>
                 <br />
 

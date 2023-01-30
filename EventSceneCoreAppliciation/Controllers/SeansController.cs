@@ -1,97 +1,97 @@
-﻿using BusinessLayer.Validaitons;
+﻿using BusinessLayer.Concrete;
+using BusinessLayer.Validaitons;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer;
-using Microsoft.AspNetCore.Mvc;
-using BusinessLayer.Concrete;
 using EventSceneCoreAppliciation.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace EventSceneCoreApplication.Controllers
+namespace EventSceneCoreAppliciation.Controllers
 {
     public class SeansController : Controller
     {
-        SeansManager seansManager = new SeansManager(new EfSeansRepository());
-        EtkinlikManager etkinlikManager = new EtkinlikManager(new EfEtkinlikRepository());
-        SalonManager salonManager = new SalonManager(new EfSalonRepository());
+        SeansManager seansm = new SeansManager(new EfSeansRepository());
+        EtkinlikManager etkinlikm = new EtkinlikManager(new EfEtkinlikRepository());
+        SalonManager salonm = new SalonManager(new EfSalonRepository());
         public IActionResult Index()
         {
-            var seanslar = seansManager.seansListele();
+            var seanslar = seansm.seansListele();
             return View(seanslar);
         }
-
-        public IActionResult Sil(int id)
-        {
-            Seans seans = seansManager.seansGetById(id);
-            seans.silindi = true;
-            seansManager.seansGuncelle(seans);
-            return RedirectToAction("Index");
-        }
-
         [HttpGet]
         public IActionResult Ekle()
         {
-            SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
-            seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
-            seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
-            seansEtkinlikSalonModel.seansModel = new Seans();
-            return View(seansEtkinlikSalonModel);
+            SeansEtkinlikSalonModel model = new SeansEtkinlikSalonModel();
+            model.etkinlikModel = etkinlikm.etkinlikListele();
+            model.salonModel = salonm.salonListele();
+            model.seansModel = new Seans();
+            return View(model);
         }
 
         [HttpPost]
         public IActionResult Ekle(Seans seans)
         {
-            SeansValidator etkinlikValidator = new SeansValidator();
-            var result = etkinlikValidator.Validate(seans);
+            SeansValidator seansValidator = new SeansValidator();
+            var result = seansValidator.Validate(seans);
+
             if (result.IsValid)
             {
-                seansManager.seansEkle(seans);
+                seansm.seansEkle(seans);
                 return RedirectToAction("Index");
             }
             else
             {
-                SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
-                seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
-                seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
-                seansEtkinlikSalonModel.seansModel = new Seans();
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(seansEtkinlikSalonModel);
+                SeansEtkinlikSalonModel model = new SeansEtkinlikSalonModel();
+                model.etkinlikModel = etkinlikm.etkinlikListele();
+                model.salonModel = salonm.salonListele();
+                model.seansModel = seans;
+                return View(model);
             }
+        }
+        public IActionResult Sil(int id)
+        {
+            Seans seans = seansm.seansGetById(id);
+            seans.silindi = true;
+            seansm.seansGuncelle(seans);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Guncelle(int id)
         {
-            Seans seans = seansManager.seansGetById(id);
-            SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
-            seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
-            seansEtkinlikSalonModel.seansModel = seans;
-            seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
-            return View(seansEtkinlikSalonModel);
+            SeansEtkinlikSalonModel model = new SeansEtkinlikSalonModel();
+            model.etkinlikModel = etkinlikm.etkinlikListele();
+            model.salonModel = salonm.salonListele();
+            model.seansModel = seansm.seansGetById(id);
+            return View(model);
         }
 
         [HttpPost]
         public IActionResult Guncelle(Seans seans)
         {
-            SeansValidator etkinlikValidator = new SeansValidator();
-            var result = etkinlikValidator.Validate(seans);
+            SeansValidator seansValidator = new SeansValidator();
+            var result = seansValidator.Validate(seans);
+
             if (result.IsValid)
             {
-                seansManager.seansGuncelle(seans);
+                seansm.seansGuncelle(seans);
                 return RedirectToAction("Index");
             }
             else
             {
-                SeansEtkinlikSalonModel seansEtkinlikSalonModel = new SeansEtkinlikSalonModel();
-                seansEtkinlikSalonModel.etkinlikModel = etkinlikManager.etkinlikListele();
-                seansEtkinlikSalonModel.seansModel = seans;
-                seansEtkinlikSalonModel.salonModel = salonManager.salonListele();
+                SeansEtkinlikSalonModel model = new SeansEtkinlikSalonModel();
+                model.etkinlikModel = etkinlikm.etkinlikListele();
+                model.salonModel = salonm.salonListele();
+                model.seansModel = seans;
+
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
-                return View(seansEtkinlikSalonModel);
+                return View(model);
             }
         }
     }

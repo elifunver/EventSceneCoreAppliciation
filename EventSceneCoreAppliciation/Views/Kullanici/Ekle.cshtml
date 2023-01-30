@@ -13,46 +13,34 @@
 
             @using (Html.BeginForm("Ekle", "Kullanici", FormMethod.Post, new { @class = "form-group" }))
             {
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Adı")
-                    @Html.TextBox("kullaniciAd","",new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Adı")
+                @Html.TextBox("kullaniciAd","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciAd",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Şifresi")
-                    @Html.TextBox("kullaniciSifre","",new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciSifre",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Şifresi")
+                @Html.TextBox("kullaniciSifre","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciSifre",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Tc No")
-                    @Html.TextBox("kullaniciTc","",new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciTc",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Tc No")
+                @Html.TextBox("kullaniciTc","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciTc",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Tel No")
-                    @Html.TextBox("kullaniciTel","",new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciTel",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Tel No")
+                @Html.TextBox("kullaniciTel","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciTel",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Maili")
-                    @Html.TextBox("kullaniciMail","",new { @class = "form-control" })
-                    @Html.ValidationMessage("kullaniciMail",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Maili")
+                @Html.TextBox("kullaniciMail","",new { @class = "form-control" })
+                @Html.ValidationMessage("kullaniciMail",new { @class ="text-danger" })
                 <br />
 
-                <div class="form-group">
-                    @Html.Label("Kullanıcı Doğum Tarihi")
-                    @Html.TextBox("dogumTarihi","",new { @class = "form-control" })
-                    @Html.ValidationMessage("dogumTarihi",new { @class ="text-danger" })
-                </div>
+                @Html.Label("Kullanıcı Doğum Tarihi")
+                @Html.TextBox("dogumTarihi","",new { @class = "form-control" })
+                @Html.ValidationMessage("dogumTarihi",new { @class ="text-danger" })
                 <br />
 
                 @Html.Label("Durum")

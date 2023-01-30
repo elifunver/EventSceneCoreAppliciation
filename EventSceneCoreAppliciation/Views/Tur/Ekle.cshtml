@@ -8,6 +8,7 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
+
             <h3>Tür Ekle</h3>
 
             @using (Html.BeginForm("Ekle", "Tur", FormMethod.Post, new { @class = "form-group" }))
@@ -19,8 +20,8 @@
 
                 @Html.Label("Durum")
                 <select class="form-control" name="silindi">
-                    <option value="False">False</option>
-                    <option value="True">True</option>
+                    <option value="False">Aktif</option>
+                    <option value="True">Pasif</option>
                 </select>
                 <br />
 

@@ -8,11 +8,12 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5 overflow-auto" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
+
             <table class="table">
                 <thead>
                     <tr>
                         <th>Salon Adı</th>
-                        <th>Kapasite</th>
+                        <th>Salon Kapasitesi</th>
                         <th>Durum</th>
                     </tr>
                 </thead>
@@ -34,7 +35,9 @@
                             <td>
                                 <button type="button" class="btn btn-info" data-whatever="@item.salonId" data-toggle="modal" data-target="#decisionPopup"><ion-icon name="trash-sharp"></ion-icon> </button>
                             </td>
-                            <td><a href="/Salon/guncelle/@item.salonId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a></td>
+                            <td>
+                                <a href="/Salon/guncelle/@item.salonId" type="button" class="btn btn-secondary"><ion-icon name="cloud-upload-sharp"></ion-icon></a>
+                            </td>
                         </tr>
                     }
                 </tbody>
