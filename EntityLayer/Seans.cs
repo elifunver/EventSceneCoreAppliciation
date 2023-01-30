@@ -13,7 +13,6 @@ namespace EntityLayer
         public int seansId { get; set; }
         [StringLength(50)]
         public string sure { get; set; }
-        [StringLength(50)]
         public DateTime tarih { get; set; }
         [StringLength(5)]
         public string saat { get; set; }
