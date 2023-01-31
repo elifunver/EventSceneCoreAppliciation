@@ -33,25 +33,31 @@ namespace EventSceneCoreAppliciation.Controllers
         {
             return View();
         }
-
-        [AllowAnonymous]
-        [HttpPost]
+		[AllowAnonymous]
+		[HttpPost]
         public async Task<IActionResult> Giris(Admin admin)
         {
             Context c = new Context();
-            var result = c.adminler.Where(x => x.adminMail == admin.adminMail && x.adminSifre == admin.adminSifre).SingleOrDefault();
+            var result = c.adminler.Where(adminn => adminn.adminMail == admin.adminMail && adminn.adminSifre == admin.adminSifre).SingleOrDefault();
 
             if (result != null)
             {
-                var claims = new List<Claim> { new Claim(ClaimTypes.Email, admin.adminMail) };
+                var claims = new List<Claim>() ;
+                var claimAd = new Claim(ClaimTypes.Name, result.adminAd);
+                var claimMail = new Claim(ClaimTypes.Email, result.adminMail);
+                var claimRole = new Claim(ClaimTypes.Role, result.adminTur);
 
-                var userIdentify = new ClaimsIdentity(claims, "Login");
+                claims.Add(claimAd);
+				claims.Add(claimMail);
+				claims.Add(claimRole);
+
+				var userIdentify = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentify);
 
                 //  await HttpContext.SignInAsync(principal);
                 await HttpContext
                 .SignInAsync(principal, new AuthenticationProperties { ExpiresUtc = DateTime.UtcNow.AddMinutes(1) });
-                return RedirectToAction("Index", "Firma");
+                return RedirectToAction("Index", "Home");
             }
 
             _toastNotification.AddErrorToastMessage("Kullanıcı adı veya password hatalı");

@@ -8,13 +8,16 @@ using PagedList.Core;
 using System.Drawing.Printing;
 using EventSceneCoreAppliciation.PagedList;
 using DataAccessLayer.Concrete;
+using XAct.Security;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventSceneCoreAppliciation.Controllers
 {
-    public class TurController : Controller
+    [Authorize(Roles ="yönetici")]
+	public class TurController : Controller
     {
         TurManager turm = new TurManager(new EfTurRepository());
-
+       
         public IActionResult Index()
         {
             var turlar = turm.turListele();
