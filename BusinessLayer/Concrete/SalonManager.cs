@@ -12,10 +12,12 @@ namespace BusinessLayer.Concrete
     public class SalonManager : ISalonServis
     {
         ISalonDal salonDal;
+
         public SalonManager(ISalonDal salonDal)
         {
             this.salonDal = salonDal;
         }
+
         public void salonEkle(Salon salon)
         {
             salonDal.insert(salon);

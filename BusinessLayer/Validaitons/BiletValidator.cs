@@ -35,8 +35,8 @@ namespace BusinessLayer.Validaitons
 
             RuleFor(bilet => bilet.biletKesimTarihi).NotEmpty().WithMessage("Bilet kesim tarihi boş geçilemez!");
 
-            RuleFor(bilet => bilet.fiyat).NotEmpty().WithMessage("Bilet fiyatı boş geçilemez !");
-            RuleFor(bilet => bilet.fiyat).GreaterThan(0.00).WithMessage("Daha yüksek fiyat girmelisiniz !");
+            RuleFor(bilet => bilet.fiyat).NotEmpty().WithMessage("Bilet fiyatı boş geçilemez!");
+            RuleFor(bilet => bilet.fiyat).GreaterThan(0.00).WithMessage("Daha yüksek fiyat girmelisiniz!");
         }
     }
 }

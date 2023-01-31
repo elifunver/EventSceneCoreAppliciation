@@ -64,6 +64,7 @@ namespace EventSceneCoreAppliciation.Controllers
             etkinlikm.etkinlikGuncelle(etkinlik);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public IActionResult guncelle(int id)
         {

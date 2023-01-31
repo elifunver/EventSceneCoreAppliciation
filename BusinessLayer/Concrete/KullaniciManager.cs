@@ -12,10 +12,12 @@ namespace BusinessLayer.Concrete
     public class KullaniciManager : IKullaniciServis
     {
         IKullaniciDal kullaniciDal;
+
         public KullaniciManager(IKullaniciDal kullaniciDal)
         {
             this.kullaniciDal = kullaniciDal;
         }
+
         public void kullaniciEkle(Kullanici kullanici)
         {
             kullaniciDal.insert(kullanici);

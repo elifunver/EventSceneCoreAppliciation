@@ -12,10 +12,12 @@ namespace BusinessLayer.Concrete
     public class TurManager : ITurServis
     {
         ITurDal turDal;
+
         public TurManager(ITurDal turDal)
         {
             this.turDal = turDal;
         }
+
         public void turEkle(Tur tur)
         {
             turDal.insert(tur);

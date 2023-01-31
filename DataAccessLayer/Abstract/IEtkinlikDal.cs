@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IEtkinlikDal : IGenericDal<Etkinlik>
     {
+
     }
 }

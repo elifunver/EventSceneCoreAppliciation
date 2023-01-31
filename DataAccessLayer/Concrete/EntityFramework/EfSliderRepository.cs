@@ -10,5 +10,6 @@ namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class EfSliderRepository : GenericRepository<Slider>, ISliderDal
     {
+
     }
 }

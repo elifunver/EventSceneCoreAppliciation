@@ -13,7 +13,6 @@
 
             @using (Html.BeginForm("Ekle", "Seans", FormMethod.Post, new { @class = "form-group" }))
             {
-
                 @Html.Label("Seans Süresi")
                 @Html.TextBox("sure","",new { @class = "form-control" })
                 @Html.ValidationMessage("sure",new { @class ="text-danger" })

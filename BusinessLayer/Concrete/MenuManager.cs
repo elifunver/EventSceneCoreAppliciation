@@ -12,10 +12,12 @@ namespace BusinessLayer.Concrete
     public class MenuManager : IMenuServis
     {
         IMenuDal menuDal;
+
         public MenuManager(IMenuDal menuDal)
         {
             this.menuDal = menuDal;
         }
+
         public void menuEkle(Menu menu)
         {
             menuDal.insert(menu);

@@ -8,17 +8,20 @@ namespace EventSceneCoreAppliciation.Controllers
     public class SliderController: Controller
     {
         SliderManager sm = new SliderManager(new EfSliderRepository());
+
         public IActionResult Index()
         {
 
             return View(sm.SliderListele());
         }
+
         [HttpGet]
         public IActionResult Ekle()
         {
 
             return View();
         }
+
         [HttpPost]
         public IActionResult Ekle(Slider slider)
         {
@@ -39,6 +42,7 @@ namespace EventSceneCoreAppliciation.Controllers
         {
             return View(sm.sliderGetById(id));
         }
+
         [HttpPost]
         public IActionResult guncelle(Slider slider)
         {

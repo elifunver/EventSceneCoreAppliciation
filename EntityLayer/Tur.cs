@@ -11,8 +11,10 @@ namespace EntityLayer
     {
         [Key]
         public int turId { get; set; }
+
         [StringLength(50)]
         public string turAd { get; set; }
+
         public bool silindi{ get; set; }
 
         //Etkinlik ile ilişkilendirelecek.

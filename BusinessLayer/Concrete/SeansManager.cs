@@ -12,10 +12,12 @@ namespace BusinessLayer.Concrete
     public class SeansManager : ISeansServis
     {
         ISeansDal seansDal;
+
         public SeansManager(ISeansDal seansDal)
         {
             this.seansDal = seansDal;
         }
+
         public void seansEkle(Seans seans)
         {
             seansDal.insert(seans);

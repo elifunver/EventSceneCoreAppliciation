@@ -10,5 +10,6 @@ namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class EfBiletRepository : GenericRepository<Bilet>, IBiletDal
     {
+
     }
 }

@@ -10,27 +10,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>CelestialUI Admin</title>
+
     <!-- base:css -->
     <link rel="stylesheet" href="~/admin_dashboard/vendors/typicons.font/font/typicons.css">
     <link rel="stylesheet" href="~/admin_dashboard/vendors/css/vendor.bundle.base.css">
+
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="~/admin_dashboard/css/vertical-layout-light/style.css">
+
     <!-- endinject -->
     <link rel="shortcut icon" href="~/admin_dashboard/images/favicon.png" />
 </head>
+
 <body>
     @*<div class="row" id="proBanner">
-        <div class="col-12">
-            <span class="d-flex align-items-center purchase-popup">
-                <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
-                <a href="https://www.bootstrapdash.com/product/celestial-admin-template/?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
-                <i class="typcn typcn-delete-outline" id="bannerClose"></i>
-            </span>
-        </div>
+    <div class="col-12">
+    <span class="d-flex align-items-center purchase-popup">
+    <p>Get tons of UI components, Plugins, multiple layouts, 20+ sample pages, and more!</p>
+    <a href="https://www.bootstrapdash.com/product/celestial-admin-template/?utm_source=organic&utm_medium=banner&utm_campaign=free-preview" target="_blank" class="btn download-button purchase-button ml-auto">Upgrade To Pro</a>
+    <i class="typcn typcn-delete-outline" id="bannerClose"></i>
+    </span>
+    </div>
     </div>*@
+
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -42,27 +47,27 @@
                 </button>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-             <ul class="navbar-nav mr-lg-2">
-                  <li class="nav-item  d-none d-lg-flex">
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item  d-none d-lg-flex">
                         @*a class="nav-link" href="#">
-                            Calendar
+                        Calendar
                         </a>*@
                     </li>
                     <li class="nav-item  d-none d-lg-flex">
                         @*<a class="nav-link active" href="#">
-                            Statistic
+                        Statistic
                         </a>*@
                     </li>
                     <li class="nav-item  d-none d-lg-flex">
                         @*<a class="nav-link" href="#">
-                            Employee
+                        Employee
                         </a>*@
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item d-none d-lg-flex  mr-2">
-                       @* <a class="nav-link" href="#">
-                            Help
+                        @* <a class="nav-link" href="#">
+                        Help
                         </a>*@
                     </li>
                     <li class="nav-item dropdown d-flex">
@@ -230,40 +235,40 @@
                                 </p>
                             </div>
                         </div>
-                            @*SEARCBAR*@
+                        @*SEARCBAR*@
                         @RenderSection("searchbar",false)
                         <p class="sidebar-menu-title">Menu</p>
                     </li>
-                  @*  <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            <i class="typcn typcn-device-desktop menu-icon"></i>
-                            <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
-                        </a>
+                    @*  <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                    <i class="typcn typcn-device-desktop menu-icon"></i>
+                    <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
+                    </a>
                     </li>*@
                     <li class="nav-item">
                         <a class="nav-link" href="/Tur/tur-list">
                             <i class="typcn typcn-briefcase menu-icon"></i>
                             <span class="menu-title">Tür</span>
-                          @*  <i class="typcn typcn-chevron-right menu-arrow"></i>*@
+                            @*  <i class="typcn typcn-chevron-right menu-arrow"></i>*@
                         </a>
-                       @* <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Tiyatro</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Konser</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">StandUp</a></li>
-                            </ul>
+                        @* <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Tiyatro</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Konser</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">StandUp</a></li>
+                        </ul>
                         </div>*@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Etkinlik/etkinlik-list">
                             <i class="typcn typcn-film menu-icon"></i>
                             <span class="menu-title">Etkinlik</span>
-                           @* <i class="menu-arrow"></i>*@
+                            @* <i class="menu-arrow"></i>*@
                         </a>
-                       @* <div class="collapse" id="form-elements">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-                            </ul>
+                        @* <div class="collapse" id="form-elements">
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                        </ul>
                         </div>*@
                     </li>
                     <li class="nav-item">
@@ -272,22 +277,21 @@
                             <span class="menu-title">Salon</span>
                             @*<i class="menu-arrow"></i>*@
                         </a>
-                       @* <div class="collapse" id="charts">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">A Salonu</a></li>
-                            </ul>
+                        @* <div class="collapse" id="charts">
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">A Salonu</a></li>
+                        </ul>
                         </div>
                         <div class="collapse" id="charts">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">B Salonu</a></li>
-                            </ul>
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">B Salonu</a></li>
+                        </ul>
                         </div>
                         <div class="collapse" id="charts">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">C Salonu</a></li>
-                            </ul>
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">C Salonu</a></li>
+                        </ul>
                         </div>*@
-
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Seans/seans-list">
@@ -295,35 +299,35 @@
                             <span class="menu-title">Seans</span>
                             @*<i class="menu-arrow"></i>*@
                         </a>
-                      @*  <div class="collapse" id="tables">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                            </ul>
+                        @*  <div class="collapse" id="tables">
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                        </ul>
                         </div>*@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Seyirci/seyirci-list">
                             <i class="typcn typcn-user-add-outline menu-icon"></i>
                             <span class="menu-title">Seyirci</span>
-                           @* <i class="menu-arrow"></i>*@
+                            @* <i class="menu-arrow"></i>*@
                         </a>
-                      @*  <div class="collapse" id="icons">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                            </ul>
+                        @*  <div class="collapse" id="icons">
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+                        </ul>
                         </div>*@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Bilet/bilet-list">
                             <i class="typcn typcn-compass menu-icon"></i>
                             <span class="menu-title">Bilet</span>
-                           @* <i class="menu-arrow"></i>*@
+                            @* <i class="menu-arrow"></i>*@
                         </a>
-                      @* <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                            </ul>
+                        @* <div class="collapse" id="auth">
+                        <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                        </ul>
                         </div>*@
                     </li>
                     <li class="nav-item">
@@ -338,20 +342,20 @@
                             <span class="menu-title">Menu</span>
                         </a>
                     </li>
-                   @* <li class="nav-item">
-                        <a class="nav-link" href="pages/documentation/documentation.html">
-                            <i class="typcn typcn-document-text menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
-                        </a>
+                    @* <li class="nav-item">
+                    <a class="nav-link" href="pages/documentation/documentation.html">
+                    <i class="typcn typcn-document-text menu-icon"></i>
+                    <span class="menu-title">Documentation</span>
+                    </a>
                     </li>*@
                 </ul>
-               @* <ul class="sidebar-legend">
-                    <li>
-                        <p class="sidebar-menu-title">Category</p>
-                    </li>
-                    <li class="nav-item"><a href="#" class="nav-link">#Sales</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">#Marketing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">#Growth</a></li>
+                @* <ul class="sidebar-legend">
+                <li>
+                <p class="sidebar-menu-title">Category</p>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">#Sales</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">#Marketing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">#Growth</a></li>
                 </ul>*@
             </nav>
             <!-- partial -->

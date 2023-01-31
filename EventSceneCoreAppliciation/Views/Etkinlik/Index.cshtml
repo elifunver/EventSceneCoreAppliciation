@@ -15,7 +15,9 @@
                     <th>Etkinlik Adı</th>
                     <th>Açıklama</th>
                     <th>Etkinlik Afişi</th>
+
                     <th>Tür Adı</th>
+
                     <th>Durum</th>
                 </tr>
             </thead>
@@ -27,7 +29,9 @@
                         <td>@item.etkinlikAd</td>
                         <td>@item.aciklama</td>
                         <td>@item.etkinlikAfis</td>
+
                         <td>@item.tur.turAd</td>
+
                             @if (@item.silindi)
                             {
                                 <td>Pasif</td>

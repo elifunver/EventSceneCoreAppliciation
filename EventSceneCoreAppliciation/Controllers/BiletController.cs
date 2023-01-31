@@ -12,11 +12,13 @@ namespace EventSceneCoreAppliciation.Controllers
         BiletManager biletm = new BiletManager(new EfBiletRepository());
         SeansManager seansm = new SeansManager(new EfSeansRepository());
         KullaniciManager kullanicim = new KullaniciManager(new EfKullaniciRepository());
+
         public IActionResult Index()
         {
             var biletler = biletm.biletListele();
             return View(biletler);
         }
+
         [HttpGet]
         public IActionResult Ekle()
         {
@@ -38,6 +40,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 biletm.biletEkle(bilet);
                 return RedirectToAction("Index");
             }
+
             else
             {
                 foreach (var item in result.Errors)
@@ -51,6 +54,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 return View(model);
             }
         }
+
         public IActionResult Sil(int id)
         {
             Bilet bilet = biletm.biletGetById(id);

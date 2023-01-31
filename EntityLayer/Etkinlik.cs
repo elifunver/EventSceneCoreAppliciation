@@ -11,8 +11,10 @@ namespace EntityLayer
     {
         [Key]
         public int etkinlikId { get; set; }
+
         [StringLength(50)]
         public string etkinlikAd { get; set; }
+
         [StringLength(6000)]
         public string aciklama { get; set; }
 
@@ -20,7 +22,7 @@ namespace EntityLayer
 
         public bool silindi { get; set; }
 
-        //Tur ile ilişkilendirilecek.
+        //Tür ile ilişkilendirilecek.
         public int turId { get; set; }
         public virtual Tur tur { get; set; }
 

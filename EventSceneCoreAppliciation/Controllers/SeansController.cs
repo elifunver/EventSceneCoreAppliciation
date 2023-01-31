@@ -17,6 +17,7 @@ namespace EventSceneCoreAppliciation.Controllers
             var seanslar = seansm.seansListele();
             return View(seanslar);
         }
+
         [HttpGet]
         public IActionResult Ekle()
         {
@@ -51,6 +52,7 @@ namespace EventSceneCoreAppliciation.Controllers
                 return View(model);
             }
         }
+
         public IActionResult Sil(int id)
         {
             Seans seans = seansm.seansGetById(id);

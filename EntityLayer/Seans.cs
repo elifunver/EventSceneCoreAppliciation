@@ -11,11 +11,15 @@ namespace EntityLayer
     {
         [Key]
         public int seansId { get; set; }
+
         [StringLength(50)]
         public string sure { get; set; }
+
         public DateTime tarih { get; set; }
+
         [StringLength(5)]
         public string saat { get; set; }
+
         public bool silindi { get; set; }
 
         //Etkinlik ile ilişkilendirilecek.

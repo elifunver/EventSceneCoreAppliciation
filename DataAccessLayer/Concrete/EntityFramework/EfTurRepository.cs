@@ -10,5 +10,6 @@ namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class EfTurRepository : GenericRepository<Tur>, ITurDal
     {
+
     }
 }

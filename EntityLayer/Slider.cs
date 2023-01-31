@@ -11,10 +11,13 @@ namespace EntityLayer
     {
         [Key]
         public int sliderId { get; set; }
+
         [StringLength(50)]
         public string sliderName { get; set; }
+
         [StringLength(100)]
         public string resimUrl { get; set; }
+
         public bool silindi { get; set; }
     }
 }

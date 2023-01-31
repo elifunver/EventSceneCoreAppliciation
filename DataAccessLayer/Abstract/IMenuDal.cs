@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMenuDal :IGenericDal<Menu>
     {
+
     }
 }

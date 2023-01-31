@@ -75,7 +75,6 @@ namespace EventSceneCoreAppliciation.Controllers
                 turm.turGuncelle(tur);
                 return RedirectToAction("Index");
             }
-
             else
             {
                 foreach (var item in result.Errors)

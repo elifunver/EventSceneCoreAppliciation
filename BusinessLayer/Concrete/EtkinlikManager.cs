@@ -17,6 +17,7 @@ namespace BusinessLayer.Concrete
         {
             this.etkinlikDal = etkinlikDal;
         }
+
         public void etkinlikEkle(Etkinlik etkinlik)
         {
             etkinlikDal.insert(etkinlik);

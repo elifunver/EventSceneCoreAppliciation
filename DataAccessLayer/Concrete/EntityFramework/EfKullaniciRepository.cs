@@ -10,5 +10,6 @@ namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class EfKullaniciRepository : GenericRepository<Kullanici>, IKullaniciDal
     {
+
     }
 }

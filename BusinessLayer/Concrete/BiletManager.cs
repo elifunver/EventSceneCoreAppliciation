@@ -17,6 +17,7 @@ namespace BusinessLayer.Concrete
         {
             this.biletDal = biletDal;
         }
+
         public void biletEkle(Bilet bilet)
         {
             biletDal.insert(bilet);

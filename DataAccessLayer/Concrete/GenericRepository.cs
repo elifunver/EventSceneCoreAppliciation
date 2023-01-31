@@ -13,10 +13,12 @@ namespace DataAccessLayer.Concrete
     {
         Context context = new Context();
         DbSet<T> _objects;
+
         public GenericRepository()
         {
             _objects= context.Set<T>();
         }
+
         public void delete(T entity)
         {
             _objects.Remove(entity);
@@ -50,6 +52,4 @@ namespace DataAccessLayer.Concrete
             context.SaveChanges();
         }
     }
-
 }
-

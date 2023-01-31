@@ -9,11 +9,13 @@ namespace EventSceneCoreAppliciation.Controllers
     public class MenuController : Controller
     {
         MenuManager menuManager = new MenuManager(new EfMenuRepository());
+
         public IActionResult Index()
         {
             var menus = menuManager.menuListele();
             return View(menus);
         }
+
         public IActionResult sil(int id)
         {
             var menu = menuManager.menuGetById(id);
@@ -21,6 +23,7 @@ namespace EventSceneCoreAppliciation.Controllers
             menuManager.menuGuncelle(menu);
             return RedirectToAction("index");
         }
+
         [HttpGet]
         public IActionResult guncelle(int id)
         {
@@ -31,6 +34,7 @@ namespace EventSceneCoreAppliciation.Controllers
             menuParentListModel.menuModel = menu;
             return View(menuParentListModel);
         }
+
         [HttpPost]
         public IActionResult guncelle(Menu menu)
         {
@@ -38,6 +42,7 @@ namespace EventSceneCoreAppliciation.Controllers
             return RedirectToAction("Index");
 
         }
+
         [HttpGet]
         public IActionResult ekle()
         {
@@ -48,6 +53,7 @@ namespace EventSceneCoreAppliciation.Controllers
             menuParentListModel.menuModel = new Menu();
             return View(menuParentListModel);
         }
+
         [HttpPost]
         public IActionResult ekle(Menu menu)
         {

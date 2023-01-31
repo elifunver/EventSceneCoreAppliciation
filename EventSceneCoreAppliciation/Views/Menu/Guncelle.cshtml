@@ -8,11 +8,11 @@
 <div class="col-11 grid-margin stretch-card">
     <div class="card m-5" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;">
         <div class="card-body">
+
             <h3>Menü Güncelle</h3>
 
             @using (Html.BeginForm("Guncelle", "Menu", FormMethod.Post, new { @class = "form-group" }))
             {
-
                 @Html.TextBox("menuId",Model.menuModel.menuId,new { @class = "form-control" ,@type="hidden"})
                 <br/>
 
@@ -25,7 +25,6 @@
                 <br/>
 
                 @Html.Label("Parent")
-
                 <select name="parentId" class="form-control">
                     <option value="Null">Kendisi</option>
                     @foreach (var item in Model.menuListModel)
@@ -40,7 +39,6 @@
                             {
                                 <option value="@item.menuId">@item.name</option>
                             }
-
                         }
                     }
                 </select>

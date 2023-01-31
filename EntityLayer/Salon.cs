@@ -11,9 +11,12 @@ namespace EntityLayer
     {
         [Key]
         public int salonId { get; set; }
+
         [StringLength(50)]
         public string salonAd { get; set; }
+
         public int kapasite { get; set; }
+
         public bool silindi { get; set; }
 
         //Seans ile ilişkilendirilecek.
